@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birchpad — быстрый текстовый редактор в духе Notepad++</title>
+<meta name="description" content="Birchpad — бесплатный текстовый редактор с открытым исходным кодом для Windows, macOS и Linux. Вкладки, подсветка 50 языков, мультикурсор, кодировки, поиск по файлам. Написан на Rust, без телеметрии.">
+<link rel="canonical" href="https://birchpad.ru/">
+<link rel="alternate" hreflang="ru" href="https://birchpad.ru/">
+<link rel="alternate" hreflang="en" href="https://birchpad.ru/en/">
+<link rel="alternate" hreflang="x-default" href="https://birchpad.ru/en/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/birchpad.png">
+<meta name="theme-color" content="#f8f4ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121814" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Birchpad">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://birchpad.ru/">
+<meta property="og:title" content="Birchpad — быстрый текстовый редактор в духе Notepad++">
+<meta property="og:description" content="Бесплатный редактор для Windows, macOS и Linux. Написан на Rust, без телеметрии, с открытым кодом.">
+<meta property="og:image" content="https://birchpad.ru/assets/birchpad.png">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="/assets/fonts/literata-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Birchpad",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "url": "https://birchpad.ru/",
+  "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
+  "softwareVersion": "0.1.3",
+  "license": "https://opensource.org/licenses/MIT",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+}
+</script>
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="32" height="32">Birchpad</a>
+    <nav class="nav" aria-label="Разделы">
+      <a class="opt" href="#features">Возможности</a>
+      <a class="opt" href="#roadmap">Планы</a>
+      <a class="opt" href="#download">Скачать</a>
+      <a class="gh" href="https://github.com/SecurityTrip/Birchpad"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+      <a class="lang" href="/en/" hreflang="en" lang="en" title="English">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <a class="eyebrow" href="https://github.com/SecurityTrip/Birchpad/blob/main/CHANGELOG.md"><span class="dot"></span>Альфа · версия <span data-version>0.1.3</span></a>
+      <h1>Быстрый текстовый редактор <em>в духе Notepad++</em></h1>
+      <p class="lead">Для Windows, macOS и Linux. Написан на Rust, рисует интерфейс на видеокарте и обходится без браузерного движка. Бесплатный, с открытым кодом и без телеметрии.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#download" data-primary>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+          <span data-label>Скачать Birchpad</span>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/SecurityTrip/Birchpad">Исходный код</a>
+      </div>
+      <p class="cta-note">MIT или Apache-2.0 · <a href="#download">Все платформы и форматы</a></p>
+    </div>
+
+    <figure class="editor" aria-label="Окно Birchpad: три курсора правят три строки сразу" role="img">
+      <div class="ed-menu" aria-hidden="true"><span class="lights"><i></i><i></i><i></i></span><span>File</span><span>Edit</span><span>Search</span><span>View</span><span class="opt">Encoding</span><span class="opt">Language</span></div>
+      <div class="ed-tabs" aria-hidden="true">
+        <span class="ed-tab on">onfim.rs <span class="mod"></span></span>
+        <span class="ed-tab">gramota-200.md</span>
+        <span class="ed-tab">Cargo.toml</span>
+      </div>
+      <div class="ed-body" aria-hidden="true">
+        <div class="ed-ln">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12</div>
+        <div class="ed-ch"><span></span><span></span><span></span><span></span><span class="s"></span><span class="s"></span><span></span><span class="u"></span><span class="u"></span><span class="u"></span><span></span><span></span></div>
+        <div class="ed-code"><div><span class="c">// Новгород, XIII век. Заметки Онфима.</span></div><div><span class="k">use</span> birchpad::{<span class="t">Bark</span>, <span class="t">Strip</span>};</div><div></div><div><span class="k">fn</span> <span class="f">main</span>() {</div><div>    <span class="k">let</span> bark = <span class="t">Bark</span>::<span class="f">from_birch</span>(<span class="n">1240</span>);</div><div>    <span class="k">let mut</span> strip = <span class="t">Strip</span>::<span class="f">new</span>(&amp;bark);</div><div></div><div>    strip.<span class="f">write</span>(<span class="s">"Поклон от Онфима"</span>);<span class="caret"></span></div><div>    strip.<span class="f">write</span>(<span class="s">"к Даниле"</span>);<span class="caret"></span></div><div>    strip.<span class="f">write</span>(<span class="s">"<span class="sel">а б в г д е ж</span>"</span>);<span class="caret"></span></div><div>    strip.<span class="f">roll</span>();</div><div>}</div></div>
+      </div>
+      <div class="ed-status" aria-hidden="true"><span>Rust</span><span>Ln 10, Col 37</span><span class="opt">3 carets</span><span class="opt">Windows (CR LF)</span><span>UTF-8</span></div>
+    </figure>
+  </div>
+</div>
+
+<div class="facts">
+  <div class="wrap">
+    <ul>
+      <li><b>50</b><span>языков с подсветкой и сворачиванием</span></li>
+      <li><b>3</b><span>системы: Windows, macOS, Linux</span></li>
+      <li><b>0</b><span>телеметрии, аккаунтов и рекламы</span></li>
+      <li><b>0 ₽</b><span>навсегда: MIT или Apache-2.0</span></li>
+    </ul>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <p class="kicker">Возможности</p>
+    <h2>Всё, ради чего открывают Notepad++</h2>
+    <p class="sub">Первая цель проекта — догнать Notepad++ по возможностям. Большая часть повседневного уже на месте.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16M3 9h18"/></svg></div>
+        <h3>Вкладки и два вида</h3>
+        <p>Перетащите вкладку вправо или вниз — документ откроется рядом. С Ctrl получится клон того же файла.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div>
+        <h3>50 языков</h3>
+        <p>Подсветка и сворачивание на tree-sitter, в фоне и без подтормаживаний. Понимает вложенное: скрипты в HTML, код в Markdown, регулярки в JavaScript.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9M4 12h9M4 18h9M17 4v4M17 10v4M17 16v4"/></svg></div>
+        <h3>Мультикурсор и столбцы</h3>
+        <p>Правьте десятки строк одним движением, выделяйте прямоугольником и вставляйте колонки.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></div>
+        <h3>Кодировки без кракозябр</h3>
+        <p>UTF-8 с BOM и без, UTF-16, старые кодовые страницы вроде Windows-1251. «Encode in» и «Convert to» — как в Notepad++, сохранение без потерь.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 109-9 9.7 9.7 0 00-6.7 2.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></div>
+        <h3>Сессии, которые не теряют работу</h3>
+        <p>Закройте редактор с несохранёнными черновиками — при следующем запуске они будут на месте, вместе со вкладками.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5v14M4 5h0M8 7h12M8 12h8M8 17h11"/><path d="M4 7v3M4 14v3" stroke-width="3.2"/></svg></div>
+        <h3>История изменений</h3>
+        <p>Поле слева отмечает изменённые строки: оранжевым — пока не сохранены, зелёным — после сохранения.</p>
+      </article>
+      <article class="card wide">
+        <div>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></div>
+          <h3>Поиск, как вы привыкли</h3>
+          <p>Обычный, расширенный (<code>\n</code>, <code>\t</code>, <code>\x41</code>) и регулярные выражения с обратными ссылками. Поиск по файлам с фильтрами Notepad++, пометки, закладки, инкрементальный поиск и панель результатов.</p>
+        </div>
+<pre class="snippet"><span class="p">Find what:  </span><span class="s">fn (\w+)\(</span>
+<span class="p">Replace:    </span><span class="s">pub fn $1(</span>
+<span class="p">Filters:    </span>*.rs *.toml !\target
+<span class="p">Directory:  </span>~/projects
+<span class="c">— 214 совпадений в 37 файлах</span></pre>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M5.5 8h1.5M5.5 11h1.5M5.5 14h1.5"/></svg></div>
+        <h3>Панели</h3>
+        <p>Список функций для 28 языков, карта документа, папка как рабочее пространство, проекты, история буфера обмена и таблица символов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="switch">
+  <div class="wrap">
+    <p class="kicker">Переезд</p>
+    <h2>С Notepad++ — без привыкания</h2>
+    <p class="sub">Birchpad повторяет то, к чему пальцы и скрипты уже привыкли, и при этом работает не только на Windows.</p>
+    <div class="split">
+      <div class="card">
+        <h3>Что остаётся прежним</h3>
+        <ul class="checks">
+          <li><span><b>Сочетания клавиш и меню.</b> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>, <kbd>Ctrl</kbd>+<kbd>M</kbd>, <kbd>F3</kbd> и остальные — на своих местах.</span></li>
+          <li><span><b>Командная строка.</b> Ключи <code>-n</code>, <code>-c</code>, <code>-l</code>, <code>-ro</code>, <code>-multiInst</code> — ассоциации и скрипты не придётся переписывать.</span></li>
+          <li><span><b>Файлы проектов.</b> Проекты хранятся в <code>.workspace</code> Notepad++ и открываются в обоих редакторах.</span></li>
+          <li><span><b>Один экземпляр.</b> Повторный запуск открывает файлы вкладками в уже открытом окне.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Что добавляется</h3>
+        <ul class="checks">
+          <li><span><b>macOS и Linux.</b> Один редактор на всех ваших машинах, с одинаковыми настройками.</span></li>
+          <li><span><b>Нативный интерфейс на GPU.</b> Ни Electron, ни Chromium внутри.</span></li>
+          <li><span><b>Безопасные обновления.</b> Манифест подписан ed25519, у каждого релиза — SBOM и подтверждение сборки GitHub.</span></li>
+          <li><span><b>Портативный режим.</b> Распакуйте ZIP на флешку — настройки останутся рядом с программой.</span></li>
+        </ul>
+<pre class="snippet" style="margin-top:20px"><span class="p">&gt; </span>birchpad -n120 -lpython script.py
+<span class="p">&gt; </span>birchpad -ro -multiInst C:\logs\today.log</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap split">
+    <div class="card">
+      <div class="big-zero">0 запросов</div>
+      <h3>Ничего не отправляет</h3>
+      <p>Нет телеметрии, отчётов о сбоях и аккаунтов. Ваши файлы, сессии и резервные копии не покидают компьютер. В сеть Birchpad ходит только за обновлениями, раз в день, а с настройкой <code>updates.mode = "off"</code> не делает ни одного сетевого запроса. <a href="https://github.com/SecurityTrip/Birchpad/blob/main/PRIVACY.md">Политика конфиденциальности</a></p>
+    </div>
+    <div class="card">
+      <div class="big-zero">MSI</div>
+      <h3>Готов для компаний</h3>
+      <p>Установка на всю машину через MSI, политики администратора в реестре Windows, которые пользователь не может переопределить, и каналы обновлений под контролем ИТ. Каждый релиз собирается на серверах GitHub из открытого кода, с контрольными суммами SHA-256.</p>
+    </div>
+  </div>
+</div>
+
+<section id="download">
+  <div class="wrap">
+    <p class="kicker">Скачать</p>
+    <h2>Бесплатно для всех систем</h2>
+    <p class="sub">Интерфейс программы пока на английском, русский перевод запланирован.</p>
+    <div class="dl-box">
+      <div class="dl-head">
+        <p>Последняя версия: <span class="dl-ver">Birchpad <span data-version>0.1.3</span></span></p>
+        <a href="https://github.com/SecurityTrip/Birchpad/releases">Все релизы и ночные сборки →</a>
+      </div>
+      <div class="dl-list">
+        <div class="os" data-os="windows">
+          <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>Windows</h3>
+          <ul>
+            <li><a data-asset="windows-x64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-windows-x64-setup.exe"><span>Установщик x64</span><span data-size>26 МБ</span></a></li>
+            <li><a data-asset="windows-arm64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-windows-arm64-setup.exe"><span>Установщик ARM64</span><span data-size>24 МБ</span></a></li>
+            <li><a data-asset="windows-x64.msi" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-windows-x64.msi"><span>MSI для администраторов</span><span data-size>13 МБ</span></a></li>
+            <li><a data-asset="windows-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-windows-x64.zip"><span>Портативный ZIP x64</span><span data-size>16 МБ</span></a></li>
+            <li><a data-asset="windows-arm64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-windows-arm64.zip"><span>Портативный ZIP ARM64</span><span data-size>15 МБ</span></a></li>
+          </ul>
+          <p class="note">Установщик ставится без прав администратора и обновляется сам. SmartScreen спросит при первом запуске: «Подробнее» → «Выполнить в любом случае».</p>
+        </div>
+        <div class="os" data-os="macos">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>macOS</h3>
+          <ul>
+            <li><a data-asset="macos.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-macos.zip"><span>Birchpad.app</span><span data-size>31 МБ</span></a></li>
+          </ul>
+          <p class="note">macOS 10.15.7 и новее, Apple silicon и Intel. Пока приложение не нотаризовано, откройте его первый раз через Control-клик → «Открыть».</p>
+        </div>
+        <div class="os" data-os="linux">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>Linux</h3>
+          <ul>
+            <li><a data-asset="linux-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.1.3/birchpad-0.1.3-linux-x64.zip"><span>Портативный ZIP x64</span><span data-size>23 МБ</span></a></li>
+          </ul>
+          <p class="note">Чтобы Birchpad появился в меню приложений, скопируйте файлы <code>.desktop</code> и <code>.png</code> из архива — <a href="https://github.com/SecurityTrip/Birchpad#installing">инструкция</a>.</p>
+        </div>
+      </div>
+      <div class="dl-foot">
+        <span>Проверить файл: <code>gh attestation verify &lt;файл&gt; --repo SecurityTrip/Birchpad</code> или по SHA-256 из релиза.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">Планы</p>
+      <h2>Сначала — как Notepad++. Потом — дальше</h2>
+      <p class="sub">Этапы идут по зависимостям, а не по календарю. Подробности — в <a href="https://github.com/SecurityTrip/Birchpad/blob/main/docs/ROADMAP.md">дорожной карте</a>.</p>
+    </div>
+    <ol class="road">
+      <li class="done"><span class="pin">✓</span><div><h3>Основа и первый блокнот</h3><p>Вкладки, кодировки, концы строк, поиск и замена, установщики и обновления.</p></div></li>
+      <li class="done"><span class="pin">✓</span><div><h3>Редактор уровня Notepad++</h3><p>Подсветка 50 языков, сворачивание, мультикурсор, закладки, сессии.</p></div></li>
+      <li class="done"><span class="pin">✓</span><div><h3>Поиск и навигация <span class="tag">0.1.3</span></h3><p>Регулярные выражения, поиск по файлам, пометки, боковые панели, история переходов.</p></div></li>
+      <li class="now"><span class="pin">4</span><div><h3>Настройка <span class="tag next">дальше</span></h3><p>Темы (с импортом тем Notepad++), макросы, свои языки (UDL), автодополнение, русский интерфейс.</p></div></li>
+      <li><span class="pin">5</span><div><h3>Плагины</h3><p>Плагины на любом языке через WebAssembly, скрипты, менеджер плагинов. Встроенные Compare, JSON/XML-инструменты, hex.</p></div></li>
+      <li><span class="pin">6</span><div><h3>Дальше Notepad++</h3><p>LSP, палитра команд, Git, встроенный терминал, файлы в несколько гигабайт, правка по SSH.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="bark">
+      <svg class="marks" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true" fill="#2f2a25">
+        <path d="M900 40 Q940 32 1000 36 L1000 52 Q940 56 900 50 Q890 45 900 40Z"/>
+        <path d="M860 120 Q930 108 1000 114 L1000 128 Q930 134 860 128 Q850 124 860 120Z"/>
+        <path d="M930 250 Q965 244 1000 248 L1000 262 Q965 266 930 260 Q922 255 930 250Z"/>
+        <path d="M880 340 Q940 330 1000 336 L1000 350 Q940 356 880 350 Q870 345 880 340Z"/>
+        <path d="M0 300 Q24 294 46 298 Q54 304 46 310 Q24 314 0 310Z"/>
+        <path d="M0 80 Q18 76 34 80 Q40 85 34 90 Q18 93 0 90Z"/>
+      </svg>
+      <div class="in">
+        <p class="kicker">Почему «Birchpad»</p>
+        <h2>Блокнот на бересте</h2>
+        <p>До того как бумага стала обычной, в средневековом Новгороде записки, письма и школьные упражнения писали на полосках бересты. Мальчик Онфим выводил на ней азбуку и рисовал себя всадником, купцы — договаривались о долгах, соседи — передавали поклоны.</p>
+        <p>Берестяные грамоты были блокнотами своего времени. Birchpad назван в их честь — <i>birch</i> по-английски «берёза».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="kicker">Вопросы</p>
+    <h2>Частые вопросы</h2>
+    <div class="faq" style="margin-top:28px">
+      <details>
+        <summary>Это форк Notepad++?</summary>
+        <p>Нет. Birchpad написан с нуля на Rust и не связан с проектом Notepad++. Он повторяет его возможности и привычки, чтобы переход был безболезненным, но использует собственный код и работает на трёх системах.</p>
+      </details>
+      <details>
+        <summary>Насколько он готов к работе?</summary>
+        <p>Это альфа-версия. Повседневное редактирование, поиск и сессии работают, но шероховатости возможны. Темы, макросы и плагины пока в планах. Ошибки и пожелания — в <a href="https://github.com/SecurityTrip/Birchpad/issues">Issues на GitHub</a>.</p>
+      </details>
+      <details>
+        <summary>Почему Windows предупреждает при запуске?</summary>
+        <p>Сборки для Windows пока не подписаны сертификатом: подпись через SignPath уже подготовлена и включится, когда у проекта появится сертификат. До тех пор подлинность файла подтверждают контрольные суммы SHA-256 и подтверждение сборки GitHub.</p>
+      </details>
+      <details>
+        <summary>Есть ли русский интерфейс?</summary>
+        <p>Пока нет: интерфейс на английском. Русская локализация — первая в очереди вместе с английской, в этапе «Настройка». Русский текст в документах, кодировки вроде Windows-1251 и KOI8-R работают уже сейчас.</p>
+      </details>
+      <details>
+        <summary>Как помочь проекту?</summary>
+        <p>Поставьте звезду на GitHub, расскажите коллегам, сообщайте об ошибках. Код принимается через pull request — начните с <a href="https://github.com/SecurityTrip/Birchpad/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Birchpad — независимый проект с открытым исходным кодом, распространяется по лицензии MIT или Apache-2.0 на ваш выбор. Не связан с Notepad++.</p>
+    <nav aria-label="Ссылки">
+      <a href="https://github.com/SecurityTrip/Birchpad">GitHub</a>
+      <a href="https://github.com/SecurityTrip/Birchpad/releases">Релизы</a>
+      <a href="https://github.com/SecurityTrip/Birchpad/blob/main/CHANGELOG.md">Изменения</a>
+      <a href="https://github.com/SecurityTrip/Birchpad/blob/main/PRIVACY.md">Конфиденциальность</a>
+      <a href="/en/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

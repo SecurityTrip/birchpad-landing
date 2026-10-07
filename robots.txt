@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://birchpad.ru/sitemap.xml
