@@ -50,7 +50,7 @@ function changelog(text, lang) {
         description: "What is new in each version of Birchpad.",
         intro: "Downloads of each version are on the [releases page](https://github.com/SecurityTrip/Birchpad/releases).",
       };
-  return `---\neditUrl: false\ntitle:${yaml(head.title)}\ndescription: ${yaml(head.description)}\n---\n\n${GENERATED}\n\n${head.intro}\n\n${body.trim()}\n`;
+  return `---\neditUrl: false\ntitle: ${yaml(head.title)}\ndescription: ${yaml(head.description)}\n---\n\n${GENERATED}\n\n${head.intro}\n\n${body.trim()}\n`;
 }
 
 // --- Keyboard shortcuts --------------------------------------------------------------------
@@ -132,7 +132,7 @@ function shortcuts(keymap, catalog, ru, lang) {
     : ["Keyboard shortcuts", "Every default keyboard shortcut of Birchpad on Windows, Linux and macOS.",
        "These are the defaults. Change them in **Settings → Shortcut Mapper…** or in `keymap.toml` — see [Settings](/en/docs/settings/#keyboard-shortcuts). The table is built from Birchpad's source code and follows its latest version.",
        ["Command", "Windows and Linux", "macOS"]];
-  let out = `---\neditUrl: false\ntitle:${yaml(head[0])}\ndescription: ${yaml(head[1])}\n---\n\n${GENERATED}\n\n${head[2]}\n`;
+  let out = `---\neditUrl: false\ntitle: ${yaml(head[0])}\ndescription: ${yaml(head[1])}\n---\n\n${GENERATED}\n\n${head[2]}\n`;
   for (const [group, names] of Object.entries(GROUPS)) {
     const list = [...rows.values()].filter((r) => r.group === group);
     if (!list.length) continue;
@@ -167,7 +167,7 @@ function languages(source, lang) {
     ext: m[4].split(",").map((e) => e.trim().replace(/"/g, "")).filter(Boolean),
   }));
   const ru = lang === "ru";
-  let out = `---\neditUrl: false\ntitle:${yaml(ru ? "Языки" : "Languages")}\ndescription: ${yaml(ru
+  let out = `---\neditUrl: false\ntitle: ${yaml(ru ? "Языки" : "Languages")}\ndescription: ${yaml(ru
     ? `${list.length} ${plural(list.length, "язык", "языка", "языков")} с подсветкой синтаксиса и сворачиванием в Birchpad.`
     : `${list.length} languages with syntax highlighting and folding in Birchpad.`)}\n---\n\n${GENERATED}\n\n`;
   out += ru
