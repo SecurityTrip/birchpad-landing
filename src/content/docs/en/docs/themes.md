@@ -47,7 +47,7 @@ A color is `#rrggbb` or `#rrggbbaa` (with transparency). A style is a color stri
 
 ### `[editor]`
 
-`text`, `background`, `selection`, `caret`, `current-line`, `gutter-background`, `gutter-text`, `gutter-border`, `bookmark`, `change-modified`, `change-saved`, `fold-mark`, `fold-line`, `fold-underline`, `whitespace`, `eol-box`, `eol-text`, `indent-guide`, `edge`, `brace-match`, `brace-bad`, `smart-highlight`, `find-mark`, `incremental-highlight`, `mark-1` … `mark-5` (the five token styles), `scrollbar-thumb`.
+`text`, `background`, `selection`, `caret`, `current-line`, `gutter-background`, `gutter-text`, `gutter-border`, `bookmark`, `change-modified`, `change-saved`, `fold-mark`, `fold-line`, `fold-underline`, `whitespace`, `eol-box`, `eol-text`, `indent-guide`, `edge`, `brace-match`, `brace-bad`, `smart-highlight`, `find-mark`, `incremental-highlight`, `mark-1` … `mark-5` (the five token styles), `scrollbar-thumb`, `compare-added`, `compare-removed`, `compare-changed` (the Compare plugin), `spell-error` (the misspelling underline).
 
 ### `[ui]`
 

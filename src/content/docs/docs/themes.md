@@ -47,7 +47,7 @@ keyword = { color = "#cb4b16", bold = true }
 
 ### `[editor]`
 
-`text`, `background`, `selection`, `caret`, `current-line`, `gutter-background`, `gutter-text`, `gutter-border`, `bookmark`, `change-modified`, `change-saved`, `fold-mark`, `fold-line`, `fold-underline`, `whitespace`, `eol-box`, `eol-text`, `indent-guide`, `edge`, `brace-match`, `brace-bad`, `smart-highlight`, `find-mark`, `incremental-highlight`, `mark-1` … `mark-5` (пять стилей токенов), `scrollbar-thumb`.
+`text`, `background`, `selection`, `caret`, `current-line`, `gutter-background`, `gutter-text`, `gutter-border`, `bookmark`, `change-modified`, `change-saved`, `fold-mark`, `fold-line`, `fold-underline`, `whitespace`, `eol-box`, `eol-text`, `indent-guide`, `edge`, `brace-match`, `brace-bad`, `smart-highlight`, `find-mark`, `incremental-highlight`, `mark-1` … `mark-5` (пять стилей токенов), `scrollbar-thumb`, `compare-added`, `compare-removed`, `compare-changed` (плагин «Сравнение»), `spell-error` (подчёркивание ошибок орфографии).
 
 ### `[ui]`
 

@@ -56,6 +56,7 @@ export default defineConfig({
             { slug: "docs/shortcuts" },
             { slug: "docs/macros-run-tools" },
             { slug: "docs/udl-and-completion" },
+            { slug: "docs/plugins" },
           ],
         },
         {

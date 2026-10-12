@@ -32,6 +32,10 @@ Birchpad is not a fork of Notepad++: it is written from scratch in Rust and is n
 - **Columns count cells.** Wide characters (Chinese, Japanese, Korean) take two columns, as in a terminal; Notepad++ counts characters.
 - **Three systems.** The same settings, themes and macros work on Windows, macOS and Linux.
 
+## Plugins
+
+Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead, the **Plugins** menu has its own versions of the most popular ones: JSON Viewer, XML Tools, Hex Editor, Compare and Spell Checker. New plugins are written as WebAssembly and run on every system — see [Plugins and scripts](/en/docs/plugins/).
+
 ## Not there yet
 
-Plugins (the next phase, running as WebAssembly), the Window menu, tab colors and pinned tabs, fonts in themes, and a dark mode for the interface independent of the editor theme. All of them are on the [roadmap](/en/roadmap/).
+The Window menu, tab colors and pinned tabs, fonts in themes, and a dark mode for the interface independent of the editor theme. All of them are on the [roadmap](/en/roadmap/).

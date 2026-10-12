@@ -5,7 +5,7 @@ description: How to install, set up and use Birchpad, a fast text editor in the 
 
 Birchpad is a free, open-source text editor for Windows, macOS and Linux. It follows Notepad++'s features and habits, so most of what you know about Notepad++ works here too: the same menus, keyboard shortcuts, command-line options, themes, macros and user defined languages.
 
-:::note[Alpha]
+:::note[Beta]
 Birchpad moves fast, and this documentation describes its latest version. If something works differently from what is written here, please report it in [GitHub Issues](https://github.com/SecurityTrip/Birchpad/issues).
 :::
 
@@ -30,6 +30,7 @@ Birchpad moves fast, and this documentation describes its latest version. If som
 - [Keyboard shortcuts](/en/docs/shortcuts/) — the full table for Windows, Linux and macOS.
 - [Macros, Run and Tools](/en/docs/macros-run-tools/) — recording, running programs, hashes and encodings.
 - [User languages and auto-completion](/en/docs/udl-and-completion/) — Notepad++ UDL and API files.
+- [Plugins and scripts](/en/docs/plugins/) — JSON, XML, Hex, Compare, Spell Checker; your own plugins and scripts.
 
 ## Reference
 

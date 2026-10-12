@@ -46,7 +46,7 @@ Every release is built on GitHub's runners from the open source. Check that a fi
 - with GitHub's build provenance (needs the [GitHub CLI](https://cli.github.com/)):
 
 ```sh
-gh attestation verify birchpad-0.1.4-windows-x64-setup.exe --repo SecurityTrip/Birchpad
+gh attestation verify birchpad-0.1.5-windows-x64-setup.exe --repo SecurityTrip/Birchpad
 ```
 
 Every release also has an SBOM listing all dependencies in CycloneDX format (`…-sbom.cdx.json`).

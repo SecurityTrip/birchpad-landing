@@ -23,7 +23,7 @@ ansi-encoding = "windows-1251"
 | Настройки | `%APPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_CONFIG_HOME/birchpad/` (`~/.config/birchpad/`) |
 | Данные | `%LOCALAPPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_DATA_HOME/birchpad/` (`~/.local/share/birchpad/`) |
 
-В папке настроек: `settings.toml`, `keymap.toml` (сочетания клавиш), `macros.toml` (макросы), `run.toml` (команды меню «Запуск»), папки `themes`, `userDefineLangs` и `autoCompletion`. В папке данных: `state.toml` (тема, перенос строк, панели, недавние файлы), `session.toml` и папка `backup`.
+В папке настроек: `settings.toml`, `keymap.toml` (сочетания клавиш), `macros.toml` (макросы), `run.toml` (команды меню «Запуск»), папки `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` и `dictionaries`. В папке данных: `state.toml` (тема, перенос строк, панели, недавние файлы), `session.toml` и папка `backup`.
 
 В [портативном режиме](/docs/install/) всё это лежит в папке `data` рядом с программой.
 
@@ -119,9 +119,19 @@ ansi-encoding = "windows-1251"
 
 См. [Обновления и сеть](/docs/updates/).
 
+### `[plugins]`
+
+| Ключ | По умолчанию | Что делает |
+|---|---|---|
+| `install` | `"allow"` | Какие плагины загружаются: `allow` — все, `allowlist` — только из `allowed`, `deny` — никакие. |
+| `allowed` | `[]` | Идентификаторы разрешённых плагинов при `allowlist`. |
+| `scripts` | `true` | Разрешить скрипты из папки `scripts`. |
+
+См. [Плагины и скрипты](/docs/plugins/).
+
 ### Зарезервировано
 
-Ключи `plugins.install` (`allow`, `allowlist`, `deny`), `plugins.allowed`, `network.online-features` и `diagnostics.crash-reports` (по умолчанию `false`) уже читаются, но относятся к будущим возможностям: плагинам, сетевым функциям и отчётам о сбоях.
+Ключи `network.online-features` и `diagnostics.crash-reports` (по умолчанию `false`) уже читаются, но относятся к будущим возможностям: плагинам, сетевым функциям и отчётам о сбоях.
 
 ## Сочетания клавиш
 
