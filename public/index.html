@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Birchpad — быстрый текстовый редактор в духе Notepad++</title>
-<meta name="description" content="Birchpad — бесплатный текстовый редактор с открытым исходным кодом для Windows, macOS и Linux. Вкладки, подсветка 50 языков, мультикурсор, темы и макросы Notepad++, плагины, русский интерфейс. Написан на Rust, без телеметрии.">
+<title>Birchpad — текстовый редактор, аналог Notepad++ для Windows, macOS и Linux</title>
+<meta name="description" content="Бесплатный текстовый редактор с открытым кодом: вкладки, подсветка 50 языков, мультикурсор, темы, макросы и плагины. Альтернатива Notepad++ для macOS и Linux, без телеметрии.">
 <link rel="canonical" href="https://birchpad.ru/">
 <link rel="alternate" hreflang="ru" href="https://birchpad.ru/">
 <link rel="alternate" hreflang="en" href="https://birchpad.ru/en/">
@@ -17,25 +17,138 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Birchpad">
 <meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://birchpad.ru/">
-<meta property="og:title" content="Birchpad — быстрый текстовый редактор в духе Notepad++">
-<meta property="og:description" content="Бесплатный редактор для Windows, macOS и Linux. Написан на Rust, без телеметрии, с открытым кодом.">
-<meta property="og:image" content="https://birchpad.ru/assets/birchpad.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Birchpad — текстовый редактор, аналог Notepad++ для Windows, macOS и Linux">
+<meta property="og:description" content="Бесплатный текстовый редактор с открытым кодом: вкладки, подсветка 50 языков, мультикурсор, темы, макросы и плагины. Альтернатива Notepad++ для macOS и Linux, без телеметрии.">
+<meta property="og:image" content="https://birchpad.ru/assets/og-ru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Birchpad">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/literata-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Birchpad",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Windows, macOS, Linux",
-  "url": "https://birchpad.ru/",
-  "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
-  "softwareVersion": "0.1.5",
-  "license": "https://opensource.org/licenses/MIT",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://birchpad.ru/#website",
+      "url": "https://birchpad.ru/",
+      "name": "Birchpad",
+      "inLanguage": [
+        "ru",
+        "en"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://birchpad.ru/#app",
+      "name": "Birchpad",
+      "description": "Бесплатный текстовый редактор с открытым исходным кодом в духе Notepad++ для Windows, macOS и Linux.",
+      "url": "https://birchpad.ru/",
+      "image": "https://birchpad.ru/assets/birchpad.png",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Text editor",
+      "operatingSystem": "Windows, macOS 10.15.7+, Linux",
+      "softwareVersion": "0.1.5",
+      "releaseNotes": "https://birchpad.ru/changelog/",
+      "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "inLanguage": [
+        "ru",
+        "en"
+      ],
+      "featureList": [
+        "Вкладки и разделённый вид",
+        "Подсветка синтаксиса и сворачивание для 50 языков",
+        "Мультикурсор и прямоугольное выделение",
+        "Кодировки UTF-8, UTF-16, Windows-1251, KOI8-R, DOS и EBCDIC",
+        "Поиск и замена с регулярными выражениями, поиск в файлах",
+        "Темы Notepad++, макросы, пользовательские языки (UDL)",
+        "Плагины: JSON, XML, Hex, сравнение, проверка орфографии",
+        "Сессии с резервным копированием несохранённого",
+        "Русский интерфейс"
+      ],
+      "sameAs": [
+        "https://github.com/SecurityTrip/Birchpad"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "The Birchpad Contributors",
+        "url": "https://github.com/SecurityTrip/Birchpad"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ru",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Это форк Notepad++?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Birchpad написан с нуля на Rust и не связан с проектом Notepad++. Он повторяет его возможности и привычки, чтобы переход был безболезненным, но использует собственный код и работает на трёх системах."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Насколько он готов к работе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это бета-версия: всё, ради чего обычно открывают Notepad++, уже есть — от поиска в файлах до тем, макросов и плагинов. Сейчас проект доводит оставшиеся мелочи до полного соответствия Notepad++. Ошибки и пожелания — в Issues на GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работают ли плагины Notepad++?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Плагины Notepad++ — это библиотеки DLL для Windows, и в Birchpad они не загружаются. Вместо них встроены собственные версии самых популярных: JSON Viewer, XML Tools, Hex Editor, Сравнение и Проверка орфографии. Новые плагины пишутся на любом языке под WebAssembly и работают на всех трёх системах — см. Плагины и скрипты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли Notepad++ для macOS и Linux?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notepad++ работает только на Windows. Birchpad повторяет его возможности, меню и сочетания клавиш и работает на Windows, macOS и Linux — с теми же настройками, темами и макросами. Темы, пользовательские языки, сессии и проекты Notepad++ открываются как есть — см. Переход с Notepad++."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему Windows предупреждает при запуске?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сборки для Windows пока не подписаны сертификатом: подпись через SignPath уже подготовлена и включится, когда у проекта появится сертификат. До тех пор подлинность файла подтверждают контрольные суммы SHA-256 и подтверждение сборки GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли русский интерфейс?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Меню, диалоги, сообщения и строка состояния переведены полностью, с названиями, привычными по русскому Notepad++. Язык берётся из системы; выбрать его вручную можно в Опции → Настройки… → Внешний вид."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как помочь проекту?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Поставьте звезду на GitHub, расскажите коллегам, сообщайте об ошибках. Код принимается через pull request — начните с руководства для участников."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <script src="/assets/site.js" defer></script>
@@ -339,6 +452,10 @@
       <details>
         <summary>Работают ли плагины Notepad++?</summary>
         <p>Плагины Notepad++ — это библиотеки DLL для Windows, и в Birchpad они не загружаются. Вместо них встроены собственные версии самых популярных: JSON Viewer, XML Tools, Hex Editor, Сравнение и Проверка орфографии. Новые плагины пишутся на любом языке под WebAssembly и работают на всех трёх системах — см. <a href="/docs/plugins/">Плагины и скрипты</a>.</p>
+      </details>
+      <details>
+        <summary>Есть ли Notepad++ для macOS и Linux?</summary>
+        <p>Notepad++ работает только на Windows. Birchpad повторяет его возможности, меню и сочетания клавиш и работает на Windows, macOS и Linux — с теми же настройками, темами и макросами. Темы, пользовательские языки, сессии и проекты Notepad++ открываются как есть — см. <a href="/docs/switching/">Переход с Notepad++</a>.</p>
       </details>
       <details>
         <summary>Почему Windows предупреждает при запуске?</summary>

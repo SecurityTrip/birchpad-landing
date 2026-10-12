@@ -1,6 +1,6 @@
 ---
 title: Switching from Notepad++
-description: What Birchpad does the same way as Notepad++, what differs, and how to bring over themes, sessions, projects and user defined languages.
+description: What Birchpad does the same way as Notepad++, what differs, and how to bring over themes, sessions, projects and user defined languages — on Windows, macOS and Linux.
 ---
 
 Birchpad is not a fork of Notepad++: it is written from scratch in Rust and is not affiliated with the Notepad++ project. But its first goal is to match Notepad++, so that switching needs no relearning.
