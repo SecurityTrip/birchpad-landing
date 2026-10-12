@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Birchpad — a fast text editor in the spirit of Notepad++</title>
-<meta name="description" content="Birchpad is a free, open-source text editor for Windows, macOS and Linux: tabs, highlighting for 50 languages, multi-cursor editing, Notepad++ themes and macros, plugins. Written in Rust, no telemetry.">
+<title>Birchpad — a free Notepad++ alternative for Windows, macOS and Linux</title>
+<meta name="description" content="A free, open-source text editor: tabs, highlighting for 50 languages, multiple carets, themes, macros and plugins. A Notepad++ alternative for macOS and Linux, with no telemetry.">
 <link rel="canonical" href="https://birchpad.ru/en/">
 <link rel="alternate" hreflang="ru" href="https://birchpad.ru/">
 <link rel="alternate" hreflang="en" href="https://birchpad.ru/en/">
@@ -17,25 +17,130 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Birchpad">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:url" content="https://birchpad.ru/en/">
-<meta property="og:title" content="Birchpad — a fast text editor in the spirit of Notepad++">
-<meta property="og:description" content="Free for Windows, macOS and Linux. Written in Rust, no telemetry, open source.">
-<meta property="og:image" content="https://birchpad.ru/assets/birchpad.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Birchpad — a free Notepad++ alternative for Windows, macOS and Linux">
+<meta property="og:description" content="A free, open-source text editor: tabs, highlighting for 50 languages, multiple carets, themes, macros and plugins. A Notepad++ alternative for macOS and Linux, with no telemetry.">
+<meta property="og:image" content="https://birchpad.ru/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Birchpad">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Birchpad",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Windows, macOS, Linux",
-  "url": "https://birchpad.ru/en/",
-  "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
-  "softwareVersion": "0.1.5",
-  "license": "https://opensource.org/licenses/MIT",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://birchpad.ru/#website",
+      "url": "https://birchpad.ru/",
+      "name": "Birchpad",
+      "inLanguage": [
+        "ru",
+        "en"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://birchpad.ru/#app",
+      "name": "Birchpad",
+      "description": "A free, open-source text editor in the spirit of Notepad++ for Windows, macOS and Linux.",
+      "url": "https://birchpad.ru/en/",
+      "image": "https://birchpad.ru/assets/birchpad.png",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Text editor",
+      "operatingSystem": "Windows, macOS 10.15.7+, Linux",
+      "softwareVersion": "0.1.5",
+      "releaseNotes": "https://birchpad.ru/en/changelog/",
+      "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "inLanguage": [
+        "ru",
+        "en"
+      ],
+      "featureList": [
+        "Tabs and split view",
+        "Syntax highlighting and folding for 50 languages",
+        "Multiple carets and rectangular selection",
+        "UTF-8, UTF-16, legacy, DOS and EBCDIC encodings",
+        "Find and replace with regular expressions, Find in Files",
+        "Notepad++ themes, macros, User Defined Languages",
+        "Plugins: JSON, XML, Hex, Compare, Spell Checker",
+        "Sessions that back up unsaved work",
+        "English and Russian interface"
+      ],
+      "sameAs": [
+        "https://github.com/SecurityTrip/Birchpad"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "The Birchpad Contributors",
+        "url": "https://github.com/SecurityTrip/Birchpad"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it a fork of Notepad++?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Birchpad is written from scratch in Rust and is not affiliated with Notepad++. It follows its features and habits so that switching is painless, but the code is its own and it runs on three systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How ready is it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. The project is now closing the remaining gaps to full parity with Notepad++. Report bugs and ideas in GitHub Issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Notepad++ plugins work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead it has its own versions of the most popular ones: JSON Viewer, XML Tools, Hex Editor, Compare and Spell Checker. New plugins are written in any language as WebAssembly and run on all three systems — see Plugins and scripts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there Notepad++ for macOS and Linux?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notepad++ runs only on Windows. Birchpad follows its features, menus and keyboard shortcuts and runs on Windows, macOS and Linux, with the same settings, themes and macros everywhere. Notepad++ themes, user defined languages, sessions and projects open as they are — see Switching from Notepad++."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Windows warn me on the first start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows builds are not signed with a certificate yet: signing through SignPath is ready and will be switched on once the project has a certificate. Until then, SHA-256 checksums and GitHub build provenance show that a file is what the release workflow built."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Star the project on GitHub, tell your colleagues, report bugs. Code is welcome through pull requests — start with the contributing guide."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <script src="/assets/site.js" defer></script>
@@ -339,6 +444,10 @@
       <details>
         <summary>Do Notepad++ plugins work?</summary>
         <p>Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead it has its own versions of the most popular ones: JSON Viewer, XML Tools, Hex Editor, Compare and Spell Checker. New plugins are written in any language as WebAssembly and run on all three systems — see <a href="/en/docs/plugins/">Plugins and scripts</a>.</p>
+      </details>
+      <details>
+        <summary>Is there Notepad++ for macOS and Linux?</summary>
+        <p>Notepad++ runs only on Windows. Birchpad follows its features, menus and keyboard shortcuts and runs on Windows, macOS and Linux, with the same settings, themes and macros everywhere. Notepad++ themes, user defined languages, sessions and projects open as they are — see <a href="/en/docs/switching/">Switching from Notepad++</a>.</p>
       </details>
       <details>
         <summary>Why does Windows warn me on the first start?</summary>

@@ -24,9 +24,9 @@ export default defineConfig({
       social: [{ icon: "github", label: "GitHub", href: "https://github.com/SecurityTrip/Birchpad" }],
       editLink: { baseUrl: "https://github.com/SecurityTrip/birchpad-landing/edit/main/" },
       lastUpdated: true,
+      routeMiddleware: "./src/routeData.ts",
       head: [
         { tag: "link", attrs: { rel: "icon", href: "/favicon.ico", sizes: "32x32" } },
-        { tag: "meta", attrs: { property: "og:image", content: "https://birchpad.ru/assets/birchpad.png" } },
       ],
       sidebar: [
         {
