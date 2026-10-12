@@ -23,7 +23,7 @@ ansi-encoding = "windows-1251"
 | Settings | `%APPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_CONFIG_HOME/birchpad/` (`~/.config/birchpad/`) |
 | Data | `%LOCALAPPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_DATA_HOME/birchpad/` (`~/.local/share/birchpad/`) |
 
-The settings folder holds `settings.toml`, `keymap.toml` (shortcuts), `macros.toml` (macros), `run.toml` (Run menu commands), and the `themes`, `userDefineLangs` and `autoCompletion` folders. The data folder holds `state.toml` (theme, word wrap, panels, recent files), `session.toml` and the `backup` folder.
+The settings folder holds `settings.toml`, `keymap.toml` (shortcuts), `macros.toml` (macros), `run.toml` (Run menu commands), and the `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` and `dictionaries` folders. The data folder holds `state.toml` (theme, word wrap, panels, recent files), `session.toml` and the `backup` folder.
 
 In [portable mode](/en/docs/install/) all of this is in the `data` folder next to the program.
 
@@ -119,9 +119,19 @@ See [Sessions and backup](/en/docs/sessions/).
 
 See [Updates and the network](/en/docs/updates/).
 
+### `[plugins]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `install` | `"allow"` | Which plugins load: `allow` all, `allowlist` only those in `allowed`, `deny` none. |
+| `allowed` | `[]` | Ids of the plugins allowed with `allowlist`. |
+| `scripts` | `true` | Allow the scripts of the `scripts` folder. |
+
+See [Plugins and scripts](/en/docs/plugins/).
+
 ### Reserved
 
-`plugins.install` (`allow`, `allowlist`, `deny`), `plugins.allowed`, `network.online-features` and `diagnostics.crash-reports` (default `false`) are read already but belong to features still to come: plugins, online features and crash reports.
+`network.online-features` and `diagnostics.crash-reports` (default `false`) are read already but belong to features still to come: plugins, online features and crash reports.
 
 ## Keyboard shortcuts
 

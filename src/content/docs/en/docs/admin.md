@@ -8,7 +8,7 @@ description: Deploying Birchpad in an organization with the MSI, defaults for al
 `birchpad-<version>-windows-x64.msi` installs Birchpad for all users into `Program Files\Birchpad`. This copy does not update itself: the administrator rolls out new versions, for example with Intune, SCCM or Group Policy. A silent install:
 
 ```text
-msiexec /i birchpad-0.1.4-windows-x64.msi /qn
+msiexec /i birchpad-0.1.5-windows-x64.msi /qn
 ```
 
 The MSI keeps a fixed `UpgradeCode`, so a new version installs over the old one.
@@ -35,8 +35,9 @@ On Windows, policies are read from the registry keys that Group Policy and Intun
 | `UpdateChannel` | `REG_SZ` | `updates.channel` | `stable`, `beta` or `nightly`. |
 | `UpdateUrl` | `REG_SZ` | `updates.url` | The update manifest on an internal mirror; its signature is still checked. |
 | `BackupUnsaved` | `REG_DWORD` | `session.backup-unsaved` | `0`: keep no document contents in backup copies. |
-| `PluginInstall` | `REG_SZ` | `plugins.install` | `allow`, `allowlist` or `deny`, for plugins to come. |
-| `AllowedPlugins` | `REG_MULTI_SZ` | `plugins.allowed` | Plugins allowed with `allowlist`. |
+| `PluginInstall` | `REG_SZ` | `plugins.install` | `allow`, `allowlist` or `deny`: which plugins load and can be installed. |
+| `AllowedPlugins` | `REG_MULTI_SZ` | `plugins.allowed` | Ids of the plugins allowed with `allowlist`. |
+| `UserScripts` | `REG_DWORD` | `plugins.scripts` | `0`: turn user scripts off. |
 | `OnlineFeatures` | `REG_DWORD` | `network.online-features` | `0`: forbid online features to come (AI assistance, downloading language servers, the plugin catalog). |
 | `CrashReports` | `REG_DWORD` | `diagnostics.crash-reports` | Crash reports; Birchpad sends none today. |
 

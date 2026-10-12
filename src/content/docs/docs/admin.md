@@ -8,7 +8,7 @@ description: Установка Birchpad на компьютеры органи�
 `birchpad-<версия>-windows-x64.msi` ставит Birchpad для всех пользователей в `Program Files\Birchpad`. Такая копия сама не обновляется — новые версии раздаёт администратор, например через Intune, SCCM или групповую политику. Тихая установка:
 
 ```text
-msiexec /i birchpad-0.1.4-windows-x64.msi /qn
+msiexec /i birchpad-0.1.5-windows-x64.msi /qn
 ```
 
 У MSI постоянный `UpgradeCode`, поэтому новая версия ставится поверх старой.
@@ -35,8 +35,9 @@ msiexec /i birchpad-0.1.4-windows-x64.msi /qn
 | `UpdateChannel` | `REG_SZ` | `updates.channel` | `stable`, `beta` или `nightly`. |
 | `UpdateUrl` | `REG_SZ` | `updates.url` | Адрес манифеста обновлений на внутреннем зеркале; подпись проверяется всё равно. |
 | `BackupUnsaved` | `REG_DWORD` | `session.backup-unsaved` | `0` — не хранить содержимое документов в резервных копиях. |
-| `PluginInstall` | `REG_SZ` | `plugins.install` | `allow`, `allowlist` или `deny` — для будущих плагинов. |
-| `AllowedPlugins` | `REG_MULTI_SZ` | `plugins.allowed` | Разрешённые плагины при `allowlist`. |
+| `PluginInstall` | `REG_SZ` | `plugins.install` | `allow`, `allowlist` или `deny`: какие плагины загружаются и устанавливаются. |
+| `AllowedPlugins` | `REG_MULTI_SZ` | `plugins.allowed` | Идентификаторы разрешённых плагинов при `allowlist`. |
+| `UserScripts` | `REG_DWORD` | `plugins.scripts` | `0` — запретить пользовательские скрипты. |
 | `OnlineFeatures` | `REG_DWORD` | `network.online-features` | `0` — запретить будущие сетевые функции (ИИ-помощник, загрузка языковых серверов, каталог плагинов). |
 | `CrashReports` | `REG_DWORD` | `diagnostics.crash-reports` | Отчёты о сбоях; сейчас Birchpad их не отправляет. |
 

@@ -7,6 +7,7 @@ import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "smol-toml";
+import YAML from "yaml";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DOCS = join(ROOT, "src/content/docs");
@@ -99,11 +100,18 @@ function formatKeys(keys, mac) {
   }).join(" ");
 }
 
-function shortcuts(keymap, catalog, ru, lang) {
-  const titles = {};
-  const re = /(?:workspace|editor)\(\s*"([^"]+)",\s*"((?:[^"\\]|\\.)*)"\s*,?\s*\)/g;
-  for (const m of catalog.matchAll(re)) titles[m[1]] = m[2].replace(/\\"/g, '"');
-  const tr = lang === "ru" ? parse(ru) : {};
+function shortcuts(keymap, en, ru, lang) {
+  // Titles come from the interface's locales: `command.<group>.<name>` for the id
+  // `<group>.<name>`, Russian where translated, else English.
+  const locales = [YAML.parse(lang === "ru" ? ru : en), YAML.parse(en)];
+  const titleOf = (id) => {
+    const dot = id.indexOf(".");
+    for (const l of locales) {
+      const t = l.command?.[id.slice(0, dot)]?.[id.slice(dot + 1)];
+      if (typeof t === "string") return t;
+    }
+    return id;
+  };
   const L = lang === "ru" ? 1 : 0;
 
   // One row per command and arguments, with its keys on each platform.
@@ -113,8 +121,7 @@ function shortcuts(keymap, catalog, ru, lang) {
     const args = b.args ? Object.values(b.args).join(", ") : "";
     const id = `${b.command}|${args}|${b.context || ""}`;
     if (!rows.has(id)) {
-      const title = titles[b.command] || b.command;
-      let name = (tr[title] || title).replace(/\.\.\.$/, "…");
+      let name = titleOf(b.command).replace(/\.\.\.$/, "…");
       if (args) name += ` (${args})`;
       if (CONTEXTS[b.context]) name += ` — <em>${CONTEXTS[b.context][L]}</em>`;
       rows.set(id, { group, name, command: b.command, win: [], mac: [] });
@@ -222,12 +229,12 @@ const jobs = [
     return [changelog(text, "ru"), changelog(text, "en")];
   }],
   ["docs/shortcuts.md", "en/docs/shortcuts.md", async () => {
-    const [keymap, catalog, ru] = await Promise.all([
+    const [keymap, en, ru] = await Promise.all([
       source("crates/commands/src/default-keymap.toml"),
-      source("crates/commands/src/catalog.rs"),
-      source("crates/app/locales/ru.toml"),
+      source("crates/app/locales/en.yaml"),
+      source("crates/app/locales/ru.yaml"),
     ]);
-    return [shortcuts(keymap, catalog, ru, "ru"), shortcuts(keymap, catalog, ru, "en")];
+    return [shortcuts(keymap, en, ru, "ru"), shortcuts(keymap, en, ru, "en")];
   }],
   ["docs/languages.md", "en/docs/languages.md", async () => {
     const text = await source("crates/syntax/src/language.rs");

@@ -21,11 +21,11 @@ Extended mode and regular expressions, marks, Find in Files, the search results 
 
 Themes and Notepad++ theme import, the Style Configurator, Preferences, the Shortcut Mapper, macros, User Defined Languages, auto-completion, the Run and Tools menus, DOS and EBCDIC code pages, a Russian interface, printing, right-to-left text.
 
-## 5. Plugins — next
+## ✓ 5. Plugins — 0.1.5
 
-A plugin API as WebAssembly components (commands, documents, events, panels, menus), user scripting (Lua or Rhai), a plugin manager with an allowlist for organizations. Built-in versions of popular Notepad++ plugins: Compare, JSON/XML tools, hex view, spell check.
+Plugins as sandboxed WebAssembly components (commands, document events, the plugin panel), scripts in Rhai, Plugins Admin with an allowlist for organizations and the `UserScripts` policy. Built-in versions of popular Notepad++ plugins: JSON Viewer, XML Tools, Hex Editor, Compare, Spell Checker. The whole interface translated into Russian.
 
-## 6. Full parity with Notepad++
+## 6. Full parity with Notepad++ — next
 
 Everything phases 1–5 did differently or left for later: fonts in themes, the remaining Preferences sections, the Window menu, tab colors and pinned tabs, the text's context menu, the UDL editor, print preview, more interface languages, input methods and screen readers verified on real systems.
 
