@@ -224,11 +224,15 @@ The id is the name for the \`-l\` command-line option and for \`[language.<id>]\
 // --- Run -----------------------------------------------------------------------------------
 
 const jobs = [
-  ["changelog.md", "en/changelog.md", async () => {
+  ["changelog.md", "en/changelog.md", ["CHANGELOG.md"], async () => {
     const text = await source("CHANGELOG.md");
     return [changelog(text, "ru"), changelog(text, "en")];
   }],
-  ["docs/shortcuts.md", "en/docs/shortcuts.md", async () => {
+  ["docs/shortcuts.md", "en/docs/shortcuts.md", [
+    "crates/commands/src/default-keymap.toml",
+    "crates/app/locales/en.yaml",
+    "crates/app/locales/ru.yaml",
+  ], async () => {
     const [keymap, en, ru] = await Promise.all([
       source("crates/commands/src/default-keymap.toml"),
       source("crates/app/locales/en.yaml"),
@@ -236,14 +240,33 @@ const jobs = [
     ]);
     return [shortcuts(keymap, en, ru, "ru"), shortcuts(keymap, en, ru, "en")];
   }],
-  ["docs/languages.md", "en/docs/languages.md", async () => {
+  ["docs/languages.md", "en/docs/languages.md", ["crates/syntax/src/language.rs"], async () => {
     const text = await source("crates/syntax/src/language.rs");
     return [languages(text, "ru"), languages(text, "en")];
   }],
 ];
 
+// When a source last changed in Birchpad's repository, for the sitemap's <lastmod>.
+async function changed(path) {
+  if (process.env.BIRCHPAD_DIR) {
+    const { execFileSync } = await import("node:child_process");
+    return execFileSync("git", ["log", "-1", "--format=%cI", "--", path], { cwd: process.env.BIRCHPAD_DIR })
+      .toString().trim() || null;
+  }
+  const headers = { Accept: "application/vnd.github+json" };
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  const url = `https://api.github.com/repos/${REPO}/commits?sha=${REF}&per_page=1&path=${encodeURIComponent(path)}`;
+  const res = await fetch(url, { headers });
+  if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+  const [commit] = await res.json();
+  return commit ? commit.commit.committer.date : null;
+}
+
+const LASTMOD = join(ROOT, "src/data/lastmod.json");
+const lastmod = JSON.parse(await readFile(LASTMOD, "utf8").catch(() => "{}"));
+
 let failed = false;
-for (const [ru, en, make] of jobs) {
+for (const [ru, en, paths, make] of jobs) {
   try {
     const [ruText, enText] = await make();
     await write(ru, ruText);
@@ -257,5 +280,13 @@ for (const [ru, en, make] of jobs) {
       failed = true;
     }
   }
+  try {
+    const dates = (await Promise.all(paths.map(changed))).filter(Boolean).sort();
+    if (dates.length) lastmod[ru.replace(/\.md$/, "")] = dates.at(-1);
+  } catch (error) {
+    console.warn(`sync: no date for ${ru} (${error.message})`);
+  }
 }
+await mkdir(dirname(LASTMOD), { recursive: true });
+await writeFile(LASTMOD, JSON.stringify(lastmod, null, 2) + "\n");
 if (failed) process.exit(1);
