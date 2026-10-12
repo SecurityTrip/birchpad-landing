@@ -22,6 +22,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.changed.outputs.urls }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,6 +34,16 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ github.token }} # dates of Birchpad's sources, for <lastmod>
+      # Pages that are new or changed since the live site, for IndexNow after the deploy.
+      - id: changed
+        run: |
+          {
+            echo "urls<<EOF"
+            node scripts/indexnow.mjs changed
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -45,3 +57,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Tells Yandex, Bing and the other IndexNow engines about the changed pages. Google does not
+  # take IndexNow; it reads the sitemap, whose <lastmod> dates tell it what changed.
+  indexnow:
+    needs: [build, deploy]
+    if: needs.build.outputs.changed != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: echo "$URLS" | node scripts/indexnow.mjs submit
+        env:
+          URLS: ${{ needs.build.outputs.changed }}
+        shell: bash
