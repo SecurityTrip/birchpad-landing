@@ -24,7 +24,7 @@ Options ignore case. A folder instead of a file opens as a [workspace](/en/docs/
 
 ## One instance
 
-When Birchpad is already running, a second launch hands its files to it, where they open as tabs, and exits. `-multiInst` opens a window of its own.
+When Birchpad is already running, a second launch hands its files to it, where they open as tabs, and exits. `-multiInst` opens a window of its own, and `instances.mode` in the [settings](/en/docs/settings/#instances) makes that the default.
 
 ## Notepad++ compatibility
 

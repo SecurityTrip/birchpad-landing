@@ -23,7 +23,7 @@ ansi-encoding = "windows-1251"
 | Настройки | `%APPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_CONFIG_HOME/birchpad/` (`~/.config/birchpad/`) |
 | Данные | `%LOCALAPPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_DATA_HOME/birchpad/` (`~/.local/share/birchpad/`) |
 
-В папке настроек: `settings.toml`, `keymap.toml` (сочетания клавиш), `macros.toml` (макросы), `run.toml` (команды меню «Запуск»), папки `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` и `dictionaries`. В папке данных: `state.toml` (тема, перенос строк, панели, недавние файлы), `session.toml` и папка `backup`.
+В папке настроек: `settings.toml`, `keymap.toml` (сочетания клавиш), `macros.toml` (макросы), `run.toml` (команды меню «Запуск»), `context-menu.toml` (контекстное меню текста), папки `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` и `dictionaries`. В папке данных: `state.toml` (тема, перенос строк, панели, недавние файлы), `session.toml` и папка `backup`.
 
 В [портативном режиме](/docs/install/) всё это лежит в папке `data` рядом с программой.
 
@@ -46,6 +46,8 @@ ansi-encoding = "windows-1251"
 |---|---|---|
 | `theme` | `"Default"` | Тема при запуске: `Default`, `Dark` или имя файла из папки `themes` без расширения. |
 | `language` | `"auto"` | Язык интерфейса: `en`, `ru` или `auto` (как в системе). |
+| `interface` | `"theme"` | Цвета меню, вкладок, панелей и диалогов: `theme` (как в теме), `light`, `dark` или `system`. |
+| `title-file-name-only` | `false` | В заголовке окна только имя файла, без пути. |
 
 ### `[editor]`
 
@@ -98,6 +100,11 @@ ansi-encoding = "windows-1251"
 | `change-detection` | `"all"` | Следить за изменениями файлов другими программами: `all`, `current`, `off`. |
 | `reload-silently` | `false` | Перечитывать изменённый файл без вопроса. |
 | `reload-scrolls-to-end` | `false` | После перечитывания переходить в конец. |
+| `backup-on-save` | `"none"` | Копия файла перед сохранением: `none`, `simple` (`.bak` рядом) или `verbose` (копия с временем в `backup-folder`). |
+| `backup-folder` | `""` | Папка для `verbose`; пусто — `nppBackup` рядом с файлом. |
+| `default-directory` | `"follow"` | Где начинают «Открыть» и «Сохранить как»: `follow` (папка документа), `remember` (последняя), `custom`. |
+| `default-directory-path` | `""` | Папка для `custom`. |
+| `offer-default-app` | `true` | При запуске предлагать сделать Birchpad редактором по умолчанию. |
 
 ### `[session]`
 
@@ -106,8 +113,86 @@ ansi-encoding = "windows-1251"
 | `remember` | `true` | Открывать документы прошлого запуска. |
 | `backup-unsaved` | `true` | Хранить несохранённое в резервных копиях. |
 | `backup-interval-seconds` | `7` | Интервал резервного копирования. |
+| `remember-inaccessible` | `false` | Оставлять в сессии файлы, которые сейчас недоступны (например, на отключённом сетевом диске). |
 
 См. [Сессии и резервные копии](/docs/sessions/).
+
+### `[tabs]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `vertical` | `false` | Вкладки столбцом слева от вида. |
+| `multi-line` | `false` | Вкладки в несколько рядов вместо прокрутки. |
+| `reduce` | `false` | Уменьшенные вкладки. |
+| `lock` | `false` | Запретить перетаскивание вкладок. |
+| `close-button` | `true` | Кнопка закрытия на каждой вкладке. |
+| `double-click-close` | `false` | Закрывать вкладку двойным щелчком. |
+| `peeker` | `true` | Показывать начало документа при наведении на вкладку. |
+| `switcher` | `true` | Переключатель документов по <kbd>Ctrl</kbd>+<kbd>Tab</kbd>; `false` — просто следующая вкладка. |
+| `switcher-mru` | `true` | В переключателе недавние документы первыми. |
+| `exit-on-last-close` | `false` | Закрытие последней вкладки завершает Birchpad. |
+
+### `[toolbar]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `show` | `true` | Показывать панель инструментов. |
+| `size` | `"small"` | Значки: `small` или `large`. |
+| `buttons` | как в Notepad++ | Кнопки по порядку: идентификаторы команд и `"|"` для разделителя. |
+
+### `[instances]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `mode` | `"single"` | `single` — повторный запуск передаёт файлы работающему Birchpad; `session` — то же, но сессия из `-openSession` открывается отдельно; `multi` — каждый запуск отдельно. |
+
+### `[date]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `custom-format` | `"yyyy-MM-dd HH:mm:ss"` | Свой формат **Вставить дату и время**, буквы — как в Notepad++. |
+| `reverse` | `false` | Дата перед временем в коротком и длинном форматах. |
+
+### `[search-engine]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `engine` | `"duckduckgo"` | Поиск выделенного в интернете: `duckduckgo`, `google`, `bing`, `yahoo`, `stack-overflow`, `custom`. |
+| `custom-url` | `""` | Адрес для `custom`, `$(CURRENT_WORD)` — искомый текст. |
+
+### `[links]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `enabled` | `true` | Ссылки открываются двойным щелчком или <kbd>Ctrl</kbd>+щелчком. |
+| `underline` | `true` | Подчёркивать ссылки. |
+| `schemes` | `"svn:// git:// ssh:// sftp://"` | Свои схемы, кроме http, https, ftp, ftps, file и mailto. |
+
+### `[delimiters]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `open` | `"\""` | Открывающий ограничитель для <kbd>Ctrl</kbd>+двойного щелчка. |
+| `close` | `"\""` | Закрывающий ограничитель. |
+| `multi-line` | `false` | Ограничители могут быть на других строках. |
+
+### `[new-document]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `encoding` | `"utf-8"` | Кодировка новых документов: `utf-8`, `utf-8-bom`, `utf-16le-bom`, `ansi`… |
+| `line-ending` | `"system"` | `crlf`, `lf`, `cr` или `system`. |
+| `language` | `"text"` | Язык новых документов. |
+
+### `[languages.<язык>]`
+
+`tab-width` и `insert-spaces` для одного языка поверх `[editor]`, например `[languages.python]`.
+
+### `[cloud]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `folder` | `""` | Папка, откуда со следующего запуска берутся `settings.toml`, `keymap.toml`, темы и остальное. Задаётся только в локальном файле настроек. |
 
 ### `[updates]`
 
@@ -131,7 +216,7 @@ ansi-encoding = "windows-1251"
 
 ### Зарезервировано
 
-Ключи `network.online-features` и `diagnostics.crash-reports` (по умолчанию `false`) уже читаются, но относятся к будущим возможностям: плагинам, сетевым функциям и отчётам о сбоях.
+Ключи `network.online-features` и `diagnostics.crash-reports` (по умолчанию `true` и `false`) уже читаются, но относятся к будущим возможностям: плагинам, сетевым функциям и отчётам о сбоях.
 
 ## Сочетания клавиш
 

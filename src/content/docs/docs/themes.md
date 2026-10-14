@@ -51,7 +51,11 @@ keyword = { color = "#cb4b16", bold = true }
 
 ### `[ui]`
 
-`background`, `surface`, `border`, `text`, `muted`, `faint`, `selected`, `hovered`, `accent`, `error`, `error-background`, `modified`, `directory`, `heading`, `line-number`, `match-background`.
+`background`, `surface`, `border`, `text`, `muted`, `faint`, `selected`, `hovered`, `accent`, `error`, `error-background`, `modified`, `directory`, `heading`, `line-number`, `match-background`, `tab-color-1` … `tab-color-5` (цвета вкладок из **Вид → Вкладка → Цвет вкладки**).
+
+### `[font]`
+
+`family` и `size` — шрифт текста. Задаётся в «Определении стилей»; из темы Notepad++ берётся шрифт стиля Default Style.
 
 ### `[syntax]`
 

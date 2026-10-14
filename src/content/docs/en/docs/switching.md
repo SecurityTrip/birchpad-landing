@@ -38,4 +38,4 @@ Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead, th
 
 ## Not there yet
 
-The Window menu, tab colors and pinned tabs, fonts in themes, and a dark mode for the interface independent of the editor theme. All of them are on the [roadmap](/en/roadmap/).
+A dialog for editing User Defined Languages, print preview, interface languages besides English and Russian, JSON Viewer’s tree, and ComparePlus’s aligned comparison. All of them are on the [roadmap](/en/roadmap/), up to version 0.6.0.
