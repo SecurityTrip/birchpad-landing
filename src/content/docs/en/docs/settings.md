@@ -23,7 +23,7 @@ ansi-encoding = "windows-1251"
 | Settings | `%APPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_CONFIG_HOME/birchpad/` (`~/.config/birchpad/`) |
 | Data | `%LOCALAPPDATA%\Birchpad\` | `~/Library/Application Support/Birchpad/` | `$XDG_DATA_HOME/birchpad/` (`~/.local/share/birchpad/`) |
 
-The settings folder holds `settings.toml`, `keymap.toml` (shortcuts), `macros.toml` (macros), `run.toml` (Run menu commands), and the `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` and `dictionaries` folders. The data folder holds `state.toml` (theme, word wrap, panels, recent files), `session.toml` and the `backup` folder.
+The settings folder holds `settings.toml`, `keymap.toml` (shortcuts), `macros.toml` (macros), `run.toml` (Run menu commands), `context-menu.toml` (the text's context menu), and the `themes`, `userDefineLangs`, `autoCompletion`, `plugins`, `scripts` and `dictionaries` folders. The data folder holds `state.toml` (theme, word wrap, panels, recent files), `session.toml` and the `backup` folder.
 
 In [portable mode](/en/docs/install/) all of this is in the `data` folder next to the program.
 
@@ -46,6 +46,8 @@ See [For administrators](/en/docs/admin/).
 |---|---|---|
 | `theme` | `"Default"` | Theme at startup: `Default`, `Dark`, or a file name from the `themes` folder without its extension. |
 | `language` | `"auto"` | Interface language: `en`, `ru`, or `auto` (the system's). |
+| `interface` | `"theme"` | Colors of menus, tabs, panels and dialogs: `theme` (the theme's), `light`, `dark` or `system`. |
+| `title-file-name-only` | `false` | Only the file name in the title bar, without the path. |
 
 ### `[editor]`
 
@@ -98,6 +100,11 @@ See [For administrators](/en/docs/admin/).
 | `change-detection` | `"all"` | Watch for changes by other programs: `all`, `current`, `off`. |
 | `reload-silently` | `false` | Reload a changed file without asking. |
 | `reload-scrolls-to-end` | `false` | Go to the end after reloading. |
+| `backup-on-save` | `"none"` | A copy of the file before each save: `none`, `simple` (`.bak` next to it) or `verbose` (one per save, with the time, in `backup-folder`). |
+| `backup-folder` | `""` | The folder for `verbose`; empty: `nppBackup` next to the file. |
+| `default-directory` | `"follow"` | Where Open and Save As start: `follow` (the document's folder), `remember` (the last one), `custom`. |
+| `default-directory-path` | `""` | The folder for `custom`. |
+| `offer-default-app` | `true` | At startup, offer to make Birchpad the default editor. |
 
 ### `[session]`
 
@@ -106,8 +113,86 @@ See [For administrators](/en/docs/admin/).
 | `remember` | `true` | Reopen the documents of the last run. |
 | `backup-unsaved` | `true` | Keep unsaved changes in backup copies. |
 | `backup-interval-seconds` | `7` | Backup interval. |
+| `remember-inaccessible` | `false` | Keep files that cannot be read now (a network drive away) in the session. |
 
 See [Sessions and backup](/en/docs/sessions/).
+
+### `[tabs]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `vertical` | `false` | Tabs in a column on the left of each view. |
+| `multi-line` | `false` | Tabs on several rows instead of scrolling. |
+| `reduce` | `false` | Smaller tabs. |
+| `lock` | `false` | Tabs cannot be dragged. |
+| `close-button` | `true` | A close button on every tab. |
+| `double-click-close` | `false` | A double click closes a tab. |
+| `peeker` | `true` | Hovering over a tab shows the start of its document. |
+| `switcher` | `true` | The document switcher on <kbd>Ctrl</kbd>+<kbd>Tab</kbd>; `false`: the next tab. |
+| `switcher-mru` | `true` | The switcher lists the most recently used documents first. |
+| `exit-on-last-close` | `false` | Closing the last tab quits Birchpad. |
+
+### `[toolbar]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `show` | `true` | Show the toolbar. |
+| `size` | `"small"` | Icons: `small` or `large`. |
+| `buttons` | Notepad++'s | The buttons in order: command ids, and `"|"` for a separator. |
+
+### `[instances]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `mode` | `"single"` | `single`: a second launch hands its files to the running Birchpad; `session`: the same, but a session given with `-openSession` opens in a Birchpad of its own; `multi`: every launch is a Birchpad of its own. |
+
+### `[date]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `custom-format` | `"yyyy-MM-dd HH:mm:ss"` | The customized format of **Insert → Date Time**, in Notepad++'s letters. |
+| `reverse` | `false` | The date before the time in the short and long formats. |
+
+### `[search-engine]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `engine` | `"duckduckgo"` | Where **Search on Internet** goes: `duckduckgo`, `google`, `bing`, `yahoo`, `stack-overflow`, `custom`. |
+| `custom-url` | `""` | The address for `custom`, with `$(CURRENT_WORD)` for the searched text. |
+
+### `[links]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `enabled` | `true` | Links open with a double click or <kbd>Ctrl</kbd>+click. |
+| `underline` | `true` | Underline links. |
+| `schemes` | `"svn:// git:// ssh:// sftp://"` | Schemes of your own besides http, https, ftp, ftps, file and mailto. |
+
+### `[delimiters]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `open` | `"\""` | The opening delimiter for <kbd>Ctrl</kbd>+double click. |
+| `close` | `"\""` | The closing delimiter. |
+| `multi-line` | `false` | The delimiters may be on other lines. |
+
+### `[new-document]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `encoding` | `"utf-8"` | Encoding of new documents: `utf-8`, `utf-8-bom`, `utf-16le-bom`, `ansi`… |
+| `line-ending` | `"system"` | `crlf`, `lf`, `cr` or `system`. |
+| `language` | `"text"` | Language of new documents. |
+
+### `[languages.<language>]`
+
+`tab-width` and `insert-spaces` of one language over `[editor]`'s, e.g. `[languages.python]`.
+
+### `[cloud]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `folder` | `""` | The folder whose `settings.toml`, `keymap.toml`, themes and the rest Birchpad uses from the next start. Only the local settings file can set it. |
 
 ### `[updates]`
 
@@ -131,7 +216,7 @@ See [Plugins and scripts](/en/docs/plugins/).
 
 ### Reserved
 
-`network.online-features` and `diagnostics.crash-reports` (default `false`) are read already but belong to features still to come: plugins, online features and crash reports.
+`network.online-features` and `diagnostics.crash-reports` (default `true` and `false`) are read already but belong to features still to come: plugins, online features and crash reports.
 
 ## Keyboard shortcuts
 

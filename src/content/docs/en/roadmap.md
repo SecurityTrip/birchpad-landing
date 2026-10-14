@@ -25,13 +25,22 @@ Themes and Notepad++ theme import, the Style Configurator, Preferences, the Shor
 
 Plugins as sandboxed WebAssembly components (commands, document events, the plugin panel), scripts in Rhai, Plugins Admin with an allowlist for organizations and the `UserScripts` policy. Built-in versions of popular Notepad++ plugins: JSON Viewer, XML Tools, Hex Editor, Compare, Spell Checker. The whole interface translated into Russian.
 
-## 6. Full parity with Notepad++ — next
+## 6. Full parity with Notepad++ — 0.2.0 → 0.6.0
 
-Everything phases 1–5 did differently or left for later: fonts in themes, the remaining Preferences sections, the Window menu, tab colors and pinned tabs, the text's context menu, the UDL editor, print preview, more interface languages, input methods and screen readers verified on real systems.
+Everything Phases 1–5 did differently or left for later. The phase ships in several releases:
 
-## 7. Beyond Notepad++
+- **✓ 0.2.0**: pinned and colored tabs, the tab’s menu and Close Multiple Documents, the document switcher, the Window menu, the toolbar, the text’s context menu, window modes, a dark interface, fonts in themes, more Preferences, “Edit with Birchpad” in the Explorer, Birchpad as the default editor.
+- **0.3.0**: tests, faster and wider, with performance measurements.
+- **0.4.0**: languages and text: closing HTML and XML tags, the UDL editor, right-to-left text, more interface languages.
+- **0.5.0**: printing with a preview, tools, the Help menu, the remaining command line options.
+- **0.6.0**: a wider plugin API, ComparePlus-style comparison, JSON Viewer’s tree, Hex Editor in place, documentation in Russian, a last comparison with Notepad++.
 
-An LSP client, a command palette and fuzzy file finder, Git (gutter changes, blame, diff), an integrated terminal, syntax-aware selection, multi-gigabyte files, remote editing over SSH/SFTP, CSV and JSON viewers, vim mode, collaborative editing, AI assistance (disabled by the `OnlineFeatures` policy).
+## 7. Beyond Notepad++ — 0.7.0 → 1.0.0
+
+- **0.7.0**: a command palette, a fuzzy file finder, syntax-aware selection, sticky scroll.
+- **0.8.0**: an LSP client, Git (changes in the gutter, blame, diff), an integrated terminal.
+- **0.9.0**: multi-gigabyte files, CSV and JSON viewers, remote editing over SSH/SFTP, Vim mode.
+- **1.0.0**: closing the phase.
 
 ## Releases
 

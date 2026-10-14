@@ -230,13 +230,13 @@ const jobs = [
   }],
   ["docs/shortcuts.md", "en/docs/shortcuts.md", [
     "crates/commands/src/default-keymap.toml",
-    "crates/app/locales/en.yaml",
-    "crates/app/locales/ru.yaml",
+    "crates/i18n/locales/en.yaml",
+    "crates/i18n/locales/ru.yaml",
   ], async () => {
     const [keymap, en, ru] = await Promise.all([
       source("crates/commands/src/default-keymap.toml"),
-      source("crates/app/locales/en.yaml"),
-      source("crates/app/locales/ru.yaml"),
+      source("crates/i18n/locales/en.yaml"),
+      source("crates/i18n/locales/ru.yaml"),
     ]);
     return [shortcuts(keymap, en, ru, "ru"), shortcuts(keymap, en, ru, "en")];
   }],

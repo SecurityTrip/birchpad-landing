@@ -8,7 +8,13 @@ description: Установка Birchpad на компьютеры органи�
 `birchpad-<версия>-windows-x64.msi` ставит Birchpad для всех пользователей в `Program Files\Birchpad`. Такая копия сама не обновляется — новые версии раздаёт администратор, например через Intune, SCCM или групповую политику. Тихая установка:
 
 ```text
-msiexec /i birchpad-0.1.5-windows-x64.msi /qn
+msiexec /i birchpad-0.2.0-windows-x64.msi /qn
+```
+
+Пункт «Edit with Birchpad» в контекстном меню Проводника ставится отдельным компонентом `ExplorerMenu`. Чтобы установить Birchpad без него:
+
+```text
+msiexec /i birchpad-0.2.0-windows-x64.msi /qn ADDLOCAL=Main
 ```
 
 У MSI постоянный `UpgradeCode`, поэтому новая версия ставится поверх старой.

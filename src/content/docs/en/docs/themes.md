@@ -51,7 +51,11 @@ A color is `#rrggbb` or `#rrggbbaa` (with transparency). A style is a color stri
 
 ### `[ui]`
 
-`background`, `surface`, `border`, `text`, `muted`, `faint`, `selected`, `hovered`, `accent`, `error`, `error-background`, `modified`, `directory`, `heading`, `line-number`, `match-background`.
+`background`, `surface`, `border`, `text`, `muted`, `faint`, `selected`, `hovered`, `accent`, `error`, `error-background`, `modified`, `directory`, `heading`, `line-number`, `match-background`, `tab-color-1` … `tab-color-5` (the colors of **View → Tab → Apply Color**).
+
+### `[font]`
+
+`family` and `size`: the text’s font. Style Configurator sets it; a Notepad++ theme gives the font of its Default Style.
 
 ### `[syntax]`
 
