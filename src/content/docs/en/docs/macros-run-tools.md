@@ -50,9 +50,13 @@ line = "https://en.wikipedia.org/wiki/Special:Search?search=$(CURRENT_WORD)"
 ## Tools
 
 - **MD5, SHA-1, SHA-256, SHA-512 → Generate from Selection into Clipboard**: the hash of the selected text.
-- **… → Generate from Files…**: hashes of chosen files in a new document, in `sha256sum` format.
+- **… → Generate from Files…**: hashes of chosen files in a window, as Notepad++ shows them, with Copy and Open in New Document (in `sha256sum` format).
 - **Base64 Encode** and Decode, **URL Encode** and Decode, **ASCII to HEX** and back: on every selection at once, as one undo step.
 
 ## Printing
 
-**File → Print…** (<kbd>Ctrl</kbd>+<kbd>P</kbd>) opens the document in its theme colors with line numbers in the browser's print dialog, which can also save a PDF. **File → Export to HTML…** saves the same page as a file.
+**File → Print…** (<kbd>Ctrl</kbd>+<kbd>P</kbd>) opens a print preview: the pages one at a time, as they will be printed, with **Page Setup…** and **Print…**. A selection prints alone, with its line numbers.
+
+**Settings → Preferences… → Print** (the [`[print]`](/en/docs/settings/#print) section) has the paper and orientation, margins, font size, line numbers, colors (WYSIWYG, inverted, black on white, no background) and a header and footer of three parts each with Notepad++'s variables: `$(FULL_CURRENT_PATH)`, `$(FILE_NAME)`, `$(CURRENT_DIRECTORY)`, `$(CURRENT_PRINTING_PAGE)`, `$(SHORT_DATE)`, `$(LONG_DATE)`, `$(TIME)`.
+
+On Windows, printing goes through the system's print dialog, and **File → Print Now** prints on the default printer at once. On macOS and Linux the same pages print from the browser. **File → Export to HTML…** saves the document as an HTML page.

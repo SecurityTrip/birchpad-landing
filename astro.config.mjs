@@ -72,6 +72,7 @@ export default defineConfig({
             { slug: "docs/panels" },
             { slug: "docs/sessions" },
             { slug: "docs/languages" },
+            { slug: "docs/preview" },
           ],
         },
         {

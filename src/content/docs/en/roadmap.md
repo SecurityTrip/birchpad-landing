@@ -30,9 +30,9 @@ Plugins as sandboxed WebAssembly components (commands, document events, the plug
 Everything Phases 1–5 did differently or left for later. The phase ships in several releases:
 
 - **✓ 0.2.0**: pinned and colored tabs, the tab’s menu and Close Multiple Documents, the document switcher, the Window menu, the toolbar, the text’s context menu, window modes, a dark interface, fonts in themes, more Preferences, “Edit with Birchpad” in the Explorer, Birchpad as the default editor.
-- **0.3.0**: tests, faster and wider, with performance measurements.
-- **0.4.0**: languages and text: closing HTML and XML tags, the UDL editor, right-to-left text, more interface languages.
-- **0.5.0**: printing with a preview, tools, the Help menu, the remaining command line options.
+- **✓ 0.3.0**: updating from the window that announces it; tests four times faster and much wider.
+- **✓ 0.4.0**: Markdown and PlantUML preview, the UDL editor, API files of its own for 15 languages, closing HTML and XML tags, right-to-left text, a German interface, EBCDIC 875 and NEL.
+- **✓ 0.5.0**: print preview, file hashes in a window, Notepad++'s Help menu, all of Notepad++'s command line options, installing PlantUML with one button.
 - **0.6.0**: a wider plugin API, ComparePlus-style comparison, JSON Viewer’s tree, Hex Editor in place, documentation in Russian, a last comparison with Notepad++.
 
 ## 7. Beyond Notepad++ — 0.7.0 → 1.0.0
