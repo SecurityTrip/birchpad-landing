@@ -45,7 +45,8 @@ See [For administrators](/en/docs/admin/).
 | Key | Default | Meaning |
 |---|---|---|
 | `theme` | `"Default"` | Theme at startup: `Default`, `Dark`, or a file name from the `themes` folder without its extension. |
-| `language` | `"auto"` | Interface language: `en`, `ru`, or `auto` (the system's). |
+| `language` | `"auto"` | Interface language: `en`, `ru`, `de`, or `auto` (the system's). |
+| `native-lang` | `""` | A Notepad++ translation file (such as `localization/german.xml` of a Notepad++ folder) whose menu and command names come before Birchpad's. |
 | `interface` | `"theme"` | Colors of menus, tabs, panels and dialogs: `theme` (the theme's), `light`, `dark` or `system`. |
 | `title-file-name-only` | `false` | Only the file name in the title bar, without the path. |
 
@@ -75,8 +76,13 @@ See [For administrators](/en/docs/admin/).
 | Key | Default | Meaning |
 |---|---|---|
 | `auto-close` | `"()[]{}\"\"''"` | Pairs closed as you type. An empty string turns it off. |
-| `words` | `true` | List of the document's words and keywords while typing. |
-| `min-chars` | `1` | From how many characters the list shows. |
+| `words` | `true` | The document's words while typing. |
+| `min-chars` | `1` | From how many characters the document's words show. |
+| `api` | `true` | The language's keywords and functions from its API file. |
+| `api-min-chars` | `1` | From how many characters they show. |
+| `ignore-case` | `true` | Match without regard to case. |
+| `ignore-numbers` | `true` | Do not offer numbers. |
+| `close-tags` | `false` | Insert an HTML or XML closing tag after the `>` of its opening tag. |
 | `call-tips` | `true` | A function's parameters after its opening bracket. |
 
 ### `[highlighting]`
@@ -164,7 +170,8 @@ See [Sessions and backup](/en/docs/sessions/).
 
 | Key | Default | Meaning |
 |---|---|---|
-| `enabled` | `true` | Links open with a double click or <kbd>Ctrl</kbd>+click. |
+| `enabled` | `true` | Links open with <kbd>Ctrl</kbd>+click. |
+| `double-click` | `false` | With a double click too, as in Notepad++. |
 | `underline` | `true` | Underline links. |
 | `schemes` | `"svn:// git:// ssh:// sftp://"` | Schemes of your own besides http, https, ftp, ftps, file and mailto. |
 
@@ -194,6 +201,29 @@ See [Sessions and backup](/en/docs/sessions/).
 |---|---|---|
 | `folder` | `""` | The folder whose `settings.toml`, `keymap.toml`, themes and the rest Birchpad uses from the next start. Only the local settings file can set it. |
 
+### `[preview]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `plantuml` | `"plantuml"` | What draws PlantUML: the `plantuml` command (or a path to it), or a path to `plantuml.jar`. With `plantuml`, the PlantUML Birchpad installed is used too. |
+
+See [Markdown and PlantUML preview](/en/docs/preview/).
+
+### `[print]`
+
+| Key | Default | Meaning |
+|---|---|---|
+| `paper` | `"a4"` | `a3`, `a4`, `a5`, `letter`, `legal`. |
+| `landscape` | `false` | Landscape orientation. |
+| `margin-top`, `margin-bottom`, `margin-left`, `margin-right` | `15` | Margins in millimeters. |
+| `font-size` | `10` | Text size in points. |
+| `line-numbers` | `true` | Print line numbers. |
+| `colors` | `"wysiwyg"` | `wysiwyg` (as on screen), `invert`, `black-on-white`, `no-background`. |
+| `header-left`, `header-center`, `header-right` | `""` | The header's parts, with Notepad++'s variables. |
+| `footer-left`, `footer-center`, `footer-right` | `""` | The footer's parts. |
+
+See [Printing](/en/docs/macros-run-tools/#printing).
+
 ### `[updates]`
 
 | Key | Default | Meaning |
@@ -201,6 +231,7 @@ See [Sessions and backup](/en/docs/sessions/).
 | `mode` | `"auto"` | `off`: no network requests at all; `notify`: only announce; `auto`: download and install on restart. |
 | `channel` | `"stable"` | `stable`, `beta` or `nightly`. |
 | `url` | — | Another address for the signed update manifest, such as an internal mirror. |
+| `proxy` | `\"\"` | The proxy for updates: `http://host:port`, `socks5://host:port` or `host:port`. Empty: `HTTPS_PROXY`, `ALL_PROXY`, or the system's on Windows. |
 
 See [Updates and the network](/en/docs/updates/).
 

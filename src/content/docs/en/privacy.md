@@ -7,10 +7,11 @@ Birchpad collects no personal data. It has no telemetry, no crash reporting and 
 
 ## Network requests
 
-Birchpad connects to the network only for updates:
+On its own, Birchpad connects to the network only for updates:
 
 - **Checking for updates**: once a day while Birchpad runs, and when you pick **Help → Check for Updates…**, it downloads the update manifest from `https://github.com/SecurityTrip/Birchpad/releases/download/updates/birchpad-updates.json`, or from the address in the `updates.url` setting. The request says which version of Birchpad asks and on which operating system (the `User-Agent` header, such as `Birchpad/0.1.4 (windows)`), and nothing about you or your files.
 - **Downloading updates**: with `updates.mode = "auto"` (the default), a copy installed with the per-user Windows installer downloads the package of a newer version from the address the manifest lists (GitHub's release downloads).
+- **PlantUML**: only when you click **Install PlantUML** in the [preview](/en/docs/preview/), PlantUML and its Java are downloaded from Birchpad\'s releases on GitHub. With `network.online-features = false` that button downloads nothing.
 
 GitHub serves these files and, like any web server, sees the requests: the address of your computer or network and the time. Its [privacy statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement) covers them.
 

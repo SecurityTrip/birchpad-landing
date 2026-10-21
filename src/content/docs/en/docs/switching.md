@@ -28,7 +28,7 @@ Birchpad is not a fork of Notepad++: it is written from scratch in Rust and is n
 
 - **Settings in TOML.** Instead of `config.xml`, a readable `settings.toml` you can keep in Git and share. **Settings → Preferences…** edits the same file and keeps your comments. See [Settings](/en/docs/settings/).
 - **A find panel, not a dialog.** Find, Replace, Mark and Find in Files open as a panel at the bottom of the window and never cover the text.
-- **Printing through the browser.** **File → Print…** opens the document in its theme's colors in the browser's print dialog, which can also save a PDF.
+- **Printing through the browser on macOS and Linux.** On Windows, it goes through the system's print dialog, as in Notepad++.
 - **Columns count cells.** Wide characters (Chinese, Japanese, Korean) take two columns, as in a terminal; Notepad++ counts characters.
 - **Three systems.** The same settings, themes and macros work on Windows, macOS and Linux.
 
@@ -38,4 +38,4 @@ Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead, th
 
 ## Not there yet
 
-A dialog for editing User Defined Languages, print preview, interface languages besides English and Russian, JSON Viewer’s tree, and ComparePlus’s aligned comparison. All of them are on the [roadmap](/en/roadmap/), up to version 0.6.0.
+A wider plugin API (settings and panels of their own), ComparePlus's aligned comparison, JSON Viewer's tree, XML Tools' XPath and XSD validation, and Hex Editor in the document itself. All of them are planned for 0.6.0 on the [roadmap](/en/roadmap/).

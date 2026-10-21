@@ -23,7 +23,9 @@ The status bar shows the encoding and the line ending; a click on them opens the
 
 ## Character sets
 
-**Encoding → Character Sets** lists every code page, DOS (OEM-US 437, 737, 775, 850, 852, 855, 857, 858, 860–865, 869) and EBCDIC (037, 500, 1026, 1140) included. Settings and the command line name them as `cp437` or `IBM437`, for example.
+**Encoding → Character Sets** lists every code page, DOS (OEM-US 437, 737, 775, 850, 852, 855, 857, 858, 860–865, 869) and EBCDIC (037, 500, 875, 1026, 1140) included. Settings and the command line name them as `cp437` or `IBM437`, for example.
+
+EBCDIC files whose lines end with NEL, as on IBM mainframes, open with their lines broken and are saved with NEL again; the status bar shows “EBCDIC (NEL)”.
 
 ## Line endings
 

@@ -22,6 +22,7 @@ Birchpad moves fast, and this documentation describes its latest version. If som
 - [Side panels](/en/docs/panels/) — Function List, Document Map, Folder as Workspace, projects.
 - [Sessions and backups](/en/docs/sessions/) — why Birchpad never loses unsaved work.
 - [Languages](/en/docs/languages/) — which languages are highlighted and how a file's language is chosen.
+- [Markdown and PlantUML preview](/en/docs/preview/): the page or the diagram beside the text.
 
 ## Customization
 

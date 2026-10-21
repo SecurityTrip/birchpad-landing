@@ -45,7 +45,8 @@ ansi-encoding = "windows-1251"
 | Ключ | По умолчанию | Значение |
 |---|---|---|
 | `theme` | `"Default"` | Тема при запуске: `Default`, `Dark` или имя файла из папки `themes` без расширения. |
-| `language` | `"auto"` | Язык интерфейса: `en`, `ru` или `auto` (как в системе). |
+| `language` | `"auto"` | Язык интерфейса: `en`, `ru`, `de` или `auto` (как в системе). |
+| `native-lang` | `""` | Файл перевода Notepad++ (например, `localization/german.xml` из папки Notepad++): его названия меню и команд важнее встроенных. |
 | `interface` | `"theme"` | Цвета меню, вкладок, панелей и диалогов: `theme` (как в теме), `light`, `dark` или `system`. |
 | `title-file-name-only` | `false` | В заголовке окна только имя файла, без пути. |
 
@@ -75,8 +76,13 @@ ansi-encoding = "windows-1251"
 | Ключ | По умолчанию | Значение |
 |---|---|---|
 | `auto-close` | `"()[]{}\"\"''"` | Парные символы, которые закрываются при вводе. Пустая строка выключает. |
-| `words` | `true` | Список слов документа и ключевых слов при вводе. |
-| `min-chars` | `1` | Со скольких символов показывать список. |
+| `words` | `true` | Список слов документа при вводе. |
+| `min-chars` | `1` | Со скольких символов показывать слова документа. |
+| `api` | `true` | Ключевые слова и функции языка из API-файла. |
+| `api-min-chars` | `1` | Со скольких символов их показывать. |
+| `ignore-case` | `true` | Подбирать без учёта регистра. |
+| `ignore-numbers` | `true` | Не предлагать числа. |
+| `close-tags` | `false` | Вставлять закрывающий тег HTML и XML после `>` открывающего. |
 | `call-tips` | `true` | Подсказка параметров функции после открывающей скобки. |
 
 ### `[highlighting]`
@@ -164,7 +170,8 @@ ansi-encoding = "windows-1251"
 
 | Ключ | По умолчанию | Значение |
 |---|---|---|
-| `enabled` | `true` | Ссылки открываются двойным щелчком или <kbd>Ctrl</kbd>+щелчком. |
+| `enabled` | `true` | Ссылки открываются <kbd>Ctrl</kbd>+щелчком. |
+| `double-click` | `false` | И двойным щелчком, как в Notepad++. |
 | `underline` | `true` | Подчёркивать ссылки. |
 | `schemes` | `"svn:// git:// ssh:// sftp://"` | Свои схемы, кроме http, https, ftp, ftps, file и mailto. |
 
@@ -194,6 +201,29 @@ ansi-encoding = "windows-1251"
 |---|---|---|
 | `folder` | `""` | Папка, откуда со следующего запуска берутся `settings.toml`, `keymap.toml`, темы и остальное. Задаётся только в локальном файле настроек. |
 
+### `[preview]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `plantuml` | `"plantuml"` | Чем рисовать PlantUML: команда `plantuml` (или путь к ней) либо путь к `plantuml.jar`. При `plantuml` используется и PlantUML, поставленный самим Birchpad. |
+
+См. [Предпросмотр Markdown и PlantUML](/docs/preview/).
+
+### `[print]`
+
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `paper` | `"a4"` | `a3`, `a4`, `a5`, `letter`, `legal`. |
+| `landscape` | `false` | Альбомная ориентация. |
+| `margin-top`, `margin-bottom`, `margin-left`, `margin-right` | `15` | Поля, мм. |
+| `font-size` | `10` | Размер текста, пт. |
+| `line-numbers` | `true` | Печатать номера строк. |
+| `colors` | `"wysiwyg"` | `wysiwyg` (как на экране), `invert`, `black-on-white`, `no-background`. |
+| `header-left`, `header-center`, `header-right` | `""` | Части верхнего колонтитула, с переменными Notepad++. |
+| `footer-left`, `footer-center`, `footer-right` | `""` | Части нижнего колонтитула. |
+
+См. [Печать](/docs/macros-run-tools/#печать).
+
 ### `[updates]`
 
 | Ключ | По умолчанию | Значение |
@@ -201,6 +231,7 @@ ansi-encoding = "windows-1251"
 | `mode` | `"auto"` | `off` — никаких сетевых запросов, `notify` — только сообщать, `auto` — скачивать и ставить при перезапуске. |
 | `channel` | `"stable"` | `stable`, `beta` или `nightly`. |
 | `url` | — | Свой адрес подписанного манифеста обновлений, например внутреннее зеркало. |
+| `proxy` | `""` | Прокси для обновлений: `http://host:port`, `socks5://host:port` или `host:port`. Пусто — `HTTPS_PROXY`, `ALL_PROXY` или системный на Windows. |
 
 См. [Обновления и сеть](/docs/updates/).
 

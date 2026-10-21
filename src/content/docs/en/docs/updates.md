@@ -3,7 +3,7 @@ title: Updates and the network
 description: How Birchpad checks for and installs updates, the stable, beta and nightly channels, the signed manifest and the zero-network mode.
 ---
 
-Birchpad uses the network only for updates: shortly after it starts, then once a day, and when you pick **Help → Check for Updates…**. Nothing else: no telemetry, no crash reports, no accounts. See [Privacy](/en/privacy/).
+On its own, Birchpad uses the network only for updates: shortly after it starts, then once a day, and when you pick **Help → Check for Updates…**. The one other case is PlantUML for the [preview](/en/docs/preview/), when you click Install PlantUML. Nothing else: no telemetry, no crash reports, no accounts. See [Privacy](/en/privacy/).
 
 ## Modes
 
@@ -14,6 +14,8 @@ Birchpad uses the network only for updates: shortly after it starts, then once a
 | `off` | No network requests at all. |
 
 Only Birchpad from the per-user installer (`…-setup.exe`) updates itself. Portable copies, the MSI and the macOS and Linux builds show where to download the new version.
+
+In the window that announces an update, **Update** downloads the new version, checks it, installs it and restarts Birchpad with your documents, with a progress bar in the window; a download in the background shows its progress in the status bar. Don't show again turns update checks off. **Help → Set Updater Proxy…** (`updates.proxy`) sets a proxy for updates; by default Birchpad uses `HTTPS_PROXY` or `ALL_PROXY`, or the system's on Windows.
 
 ## Channels
 

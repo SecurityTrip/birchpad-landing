@@ -90,7 +90,7 @@ Right-click the text for a menu: cut, copy, paste, token styles, case, comments,
 - **Edit → On Selection**: open the file or folder the selection names, or search the web for it (the engine is chosen in Preferences).
 - **Edit → Paste Special**: copy and paste binary content (NUL characters kept), paste the clipboard’s HTML or RTF as text.
 - **Edit → Insert → Date Time**: short, long or a format of your own (in Notepad++’s format letters).
-- Addresses (`http`, `https`, `ftp`, `file`, `mailto` and schemes of your own) are underlined and open with a double click or <kbd>Ctrl</kbd>+click.
+- Addresses (`http`, `https`, `ftp`, `file`, `mailto` and schemes of your own) are underlined and open with <kbd>Ctrl</kbd>+click (<kbd>Cmd</kbd>+click on macOS); a double click selects a word, as anywhere else. `links.double-click` brings back Notepad++'s double click.
 - <kbd>Ctrl</kbd>+double click selects the text between delimiters (quotes by default).
 - **View → Hide Lines** (<kbd>Alt</kbd>+<kbd>H</kbd>) hides the selected lines; a click on the mark in the margin or **Show Hidden Lines** brings them back.
 - **View → Summary…** shows the document’s path, times, characters, words and lines, and the selection’s.
@@ -103,4 +103,4 @@ Right-click the text for a menu: cut, copy, paste, token styles, case, comments,
 
 ## Right-to-left text
 
-Rows with Hebrew or Arabic show in their proper order by the Unicode Bidirectional Algorithm, with carets and clicks where they belong. **Edit → Text Direction RTL** turns a whole view right to left.
+Rows with Hebrew or Arabic show in their proper order by the Unicode Bidirectional Algorithm, with carets and clicks where they belong. **Edit → Text Direction RTL** turns a whole view right to left. In RTL the margins move to the right, and <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> and <kbd>L</kbd> switch the direction. A selection over mixed text is drawn in pieces, and sessions keep the direction per tab (Notepad++\'s sessions too).
