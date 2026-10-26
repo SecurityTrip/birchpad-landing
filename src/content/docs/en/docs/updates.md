@@ -3,7 +3,7 @@ title: Updates and the network
 description: How Birchpad checks for and installs updates, the stable, beta and nightly channels, the signed manifest and the zero-network mode.
 ---
 
-On its own, Birchpad uses the network only for updates: shortly after it starts, then once a day, and when you pick **Help → Check for Updates…**. The one other case is PlantUML for the [preview](/en/docs/preview/), when you click Install PlantUML. Nothing else: no telemetry, no crash reports, no accounts. See [Privacy](/en/privacy/).
+On its own, Birchpad uses the network only for updates: shortly after it starts, then once a day, and when you pick **Help → Check for Updates…**. Anything else happens only when you ask: PlantUML for the [preview](/en/docs/preview/), the plugin catalog and dictionaries (see [Plugins](/en/docs/plugins/#installing-plugins)). Nothing else: no telemetry, no crash reports, no accounts. See [Privacy](/en/privacy/).
 
 ## Modes
 

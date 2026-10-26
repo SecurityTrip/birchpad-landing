@@ -46,7 +46,7 @@ description: Какой файл Birchpad скачать для Windows, macOS �
 - по подтверждению сборки GitHub (нужен [GitHub CLI](https://cli.github.com/)):
 
 ```sh
-gh attestation verify birchpad-0.5.0-windows-x64-setup.exe --repo SecurityTrip/Birchpad
+gh attestation verify birchpad-0.6.0-windows-x64-setup.exe --repo SecurityTrip/Birchpad
 ```
 
 В каждом релизе также есть SBOM — список всех зависимостей в формате CycloneDX (`…-sbom.cdx.json`).

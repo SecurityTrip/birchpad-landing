@@ -30,7 +30,10 @@ birchpad [-n<line>] [-c<column>] [-p<position>] [-l<language>] [-ro] [-multiInst
 | `-quickPrint` | Print the files on the default printer. |
 | `-loadingTime` | Show how long loading took. |
 | `-qt="text"`, `-qf="file"`, `-qSpeed1`…`3` | Ghost typing: the text typed out in a new document. |
-| `-nopluginsupport` | Start without plugins. |
+| `-nopluginsupport` | Start without plugins; `-noPlugin` does the same. |
+| `-L<code>` | The interface in that language this time: `-Lde`, `-Lru`. |
+| `-notepadStyleCmdline`, `-z` | Stand in for Windows Notepad: Notepad's path is skipped and the rest is one file name with spaces. |
+| `--help` | Show the command line options. |
 | `--` | Everything after is a file name, even if it starts with `-`. |
 
 Options ignore case. A folder instead of a file opens as a [workspace](/en/docs/panels/).
@@ -41,7 +44,7 @@ When Birchpad is already running, a second launch hands its files to it, where t
 
 ## Notepad++ compatibility
 
-Notepad++'s options work as they do there. The few Birchpad does not support yet (such as `-pluginMessage=`) are accepted and ignored. An unknown option gives a warning but does not stop the start. So file associations, shortcuts and scripts written for Notepad++ keep working once the program path in them is changed.
+Notepad++'s options work as they do there. `-pluginMessage=` goes to plugins. The few options Birchpad does not support yet (such as `-fullReadOnly`) are accepted and ignored. An unknown option gives a warning but does not stop the start. So file associations, shortcuts and scripts written for Notepad++ keep working once the program path in them is changed.
 
 ## Examples
 

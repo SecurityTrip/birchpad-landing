@@ -210,9 +210,7 @@ h1 em { font-style: italic; color: var(--green); font-weight: 500; }
   overflow: hidden;
   margin: 0;
   font: 13.5px/1.75 var(--mono);
-  transform: rotate(.6deg);
 }
-@media (max-width: 960px) { .editor { transform: none; } }
 .ed-menu { display: flex; gap: 14px; padding: 7px 14px; background: var(--ed-chrome); font: 12.5px var(--sans); color: var(--ink-2); align-items: center; }
 .ed-menu .lights { display: flex; gap: 6px; margin-right: 6px; }
 .ed-menu .lights i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); display: block; }

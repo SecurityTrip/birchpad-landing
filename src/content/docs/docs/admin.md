@@ -8,13 +8,13 @@ description: Установка Birchpad на компьютеры органи�
 `birchpad-<версия>-windows-x64.msi` ставит Birchpad для всех пользователей в `Program Files\Birchpad`. Такая копия сама не обновляется — новые версии раздаёт администратор, например через Intune, SCCM или групповую политику. Тихая установка:
 
 ```text
-msiexec /i birchpad-0.5.0-windows-x64.msi /qn
+msiexec /i birchpad-0.6.0-windows-x64.msi /qn
 ```
 
 Пункт «Edit with Birchpad» в контекстном меню Проводника ставится отдельным компонентом `ExplorerMenu`. Чтобы установить Birchpad без него:
 
 ```text
-msiexec /i birchpad-0.5.0-windows-x64.msi /qn ADDLOCAL=Main
+msiexec /i birchpad-0.6.0-windows-x64.msi /qn ADDLOCAL=Main
 ```
 
 У MSI постоянный `UpgradeCode`, поэтому новая версия ставится поверх старой.
@@ -44,7 +44,7 @@ msiexec /i birchpad-0.5.0-windows-x64.msi /qn ADDLOCAL=Main
 | `PluginInstall` | `REG_SZ` | `plugins.install` | `allow`, `allowlist` или `deny`: какие плагины загружаются и устанавливаются. |
 | `AllowedPlugins` | `REG_MULTI_SZ` | `plugins.allowed` | Идентификаторы разрешённых плагинов при `allowlist`. |
 | `UserScripts` | `REG_DWORD` | `plugins.scripts` | `0` — запретить пользовательские скрипты. |
-| `OnlineFeatures` | `REG_DWORD` | `network.online-features` | `0` — запретить будущие сетевые функции (ИИ-помощник, загрузка языковых серверов, каталог плагинов). |
+| `OnlineFeatures` | `REG_DWORD` | `network.online-features` | `0` — запретить сетевые функции: каталог плагинов, загрузку словарей и PlantUML. Обновления это не затрагивает. |
 | `CrashReports` | `REG_DWORD` | `diagnostics.crash-reports` | Отчёты о сбоях; сейчас Birchpad их не отправляет. |
 
 Пример для Windows:
