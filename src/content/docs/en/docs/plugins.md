@@ -1,53 +1,71 @@
 ---
 title: Plugins and scripts
-description: Birchpad's built-in plugins (JSON Viewer, XML Tools, Hex Editor, Compare, Spell Checker), installing WebAssembly plugins, and Rhai scripts.
+description: Birchpad's built-in plugins (JSON Viewer, XML Tools, Hex Editor, Compare, Spell Checker), installing WebAssembly plugins from the catalog or a file, Rhai scripts and plugin API 0.2.
 ---
 
-The **Plugins** menu holds Birchpad's own versions of popular Notepad++ plugins, the plugins you install and your scripts.
+The **Plugins** menu holds Birchpad's versions of popular Notepad++ plugins, the plugins you installed and your scripts.
 
-Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Birchpad's plugins are WebAssembly components: they run on every system, in a sandbox.
+Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Birchpad plugins are WebAssembly components: they run on every system, in a sandbox.
 
 ## Built-in plugins
 
 ### JSON Viewer
 
-**Format JSON** puts one value per line with the editor's indentation, **Compress JSON** takes the spaces and line breaks out, **Validate JSON** looks for an error. Each works on the selection or the whole document. Numbers and strings stay as written. On an error, the caret goes where it is and the message says what is wrong.
+**Format JSON** lays values out on lines with the editor's indentation, **Compress JSON** removes spaces and line breaks, **Sort JSON Keys** formats with every object's keys in order, and **Validate JSON** finds an error and puts the caret on it. Each works on the selection or the whole document; numbers and strings stay as written.
+
+**Show JSON Viewer** opens the document's JSON as a tree beside it. A click on a node selects its value in the text, **Find JSON Path** (`$.store.book[0].title`) finds one by its path, and **Copy Value**, **Copy Key** and **Copy Path** copy the chosen one (with the panel closed, the one at the caret).
 
 ### XML Tools
 
-**Pretty Print XML**, **Linearize XML** and **Check XML Syntax** — as for JSON.
+- **Pretty Print XML**, **Linearize XML** and **Check XML Syntax**, as for JSON.
+- **Evaluate XPath Expression…** lists the nodes an expression selects.
+- **Validate Now** checks the document against its DTD or XML Schema (the one it names, or one you choose) and goes to the first problem.
+- **Escape Selected Text** and **Unescape Selected Text**.
+- **Tag Auto-Close** inserts the closing tag as you type an opening one.
 
 ### Hex Editor
 
-**View in Hex** opens the document's bytes, in its encoding, as rows of 16 in a new document. Edit them and choose **Apply Hex to Document** to put them back into the document as one undo step.
+**View in HEX** shows the document's bytes in place of its text and edits them there: two digits a byte, over the caret or inserted (<kbd>Insert</kbd>), characters in the text column, the caret shared with the text. **Find in HEX** finds bytes, or text in quotes. The bytes in a row, their groups and capitals are in **Settings → Preferences… → Hex Editor**.
+
+**Hex Dump in New Document** opens the bytes 16 to a line in a document of their own; once edited, **Apply Hex to Document** puts them back as one undo step.
 
 ### Compare
 
-**Compare** compares the active document with the other view's, or with the tab before it, which it puts side by side. Lines added, removed and changed are colored across the line; **Next Difference** and **Previous Difference** go through them, **Clear Results** takes the colors off. Spaces and case can be ignored. Themes set the colors: `compare-added`, `compare-removed`, `compare-changed`.
+It works as ComparePlus: **Compare** puts the active document beside the document of the other view or the previous tab. Blank rows keep the lines both documents have side by side, what differs within a changed line is marked too, and the differences are marked along the scrollbar. A moment after either document changes, they are compared again.
+
+- **Diff since Last Save**, **Compare to Clipboard** and **Diff to Git HEAD** compare the document with its file, the clipboard or Git's last commit.
+- **Next Difference** and **Previous Difference** move between them, **Clear Results** removes the marks.
+- **Ignore Spaces** and **Ignore Case**; **Settings → Preferences… → Compare** turns each feature on or off.
+- The theme sets the colors: `compare-added`, `compare-removed`, `compare-changed`.
 
 ### Spell Checker
 
-It works like DSpellCheck in Notepad++:
+It works as DSpellCheck does in Notepad++:
 
-- **Spell Check Document Automatically** underlines misspelled words — in code, only in comments and strings;
-- **Find Next Misspelling** and **Find Previous Misspelling** go through them;
-- **Suggestions** show in the completion list;
+- **Spell Check Document Automatically** underlines misspelled words;
+- **Find Next Misspelling** and **Find Previous Misspelling** move between them;
+- suggestions show in the completion list;
 - **Add Word to Dictionary** and **Dictionary Language**.
 
-Dictionaries are Hunspell's `.aff` and `.dic` files, from the `dictionaries` folder next to the settings (**Open Dictionaries Folder**) or the system's. Birchpad ships none: take them from LibreOffice, for example, or from the [LibreOffice dictionaries repository](https://github.com/LibreOffice/dictionaries).
+US English works out of the box, with a dictionary made from SCOWL that ships with Birchpad. For other languages use **Download Languages…**, or put Hunspell `.aff` and `.dic` files in the `dictionaries` folder next to the settings (**Open Dictionaries Folder**), from the [LibreOffice dictionaries repository](https://github.com/LibreOffice/dictionaries) for example.
+
+**Settings → Preferences… → Spell Checker** checks several languages together, chooses which words are left alone (with digits, in capitals, with a capital inside or at the start, with underscores, single letters, addresses) and what of code is checked: comments, strings, both, or all.
 
 ## Installing plugins
 
-**Plugins → Plugins Admin…** lists the installed plugins with their version, description and state:
+**Plugins → Plugins Admin…** lists the installed plugins and those of Birchpad's catalog:
 
-- **Install…** — choose the plugin's `plugin.toml`; its folder is copied into `plugins/<id>` next to the settings. Installing the same plugin again updates it.
-- **Remove** takes it out; **Turn Off** and **Turn On** keep it installed but not loaded.
-- **Reload Plugins** loads the plugins again without restarting Birchpad.
+- **Refresh List** reads the catalog, to install new plugins and update installed ones. Every download is checked against the catalog's SHA-256.
+- **Install…** takes a plugin's `plugin.toml` and copies its folder into `plugins/<id>` next to the settings. **Settings → Import → Import plugin(s)…** installs several at once. Installing the same plugin again updates it and keeps its settings.
+- **Allow Files** lets a plugin that asks for it read, write and open files.
+- **Remove** removes a plugin with its settings and permission, **Enable or Disable** keeps it installed but not loaded, and **Reload Plugins** loads them again without restarting Birchpad.
 
-Each plugin has a submenu of its commands in the **Plugins** menu. Plugin commands can be bound to keys and recorded in macros.
+Each plugin has a submenu of its commands in the **Plugins** menu, and some add items to the text's context menu. Their commands can be given keys (**Settings → Shortcut Mapper… → Plugin Commands**) and recorded in macros. Plugins' settings are in **Settings → Preferences… → Plugins**.
+
+The catalog and dictionaries download only while online features are on (`network.online-features`, the `OnlineFeatures` policy).
 
 :::note[Security]
-A plugin or a script works only on the open document: it reads and edits the text and the selections, runs Birchpad's commands, shows messages and its own panel. It cannot touch files or the network. A plugin that runs longer than a few seconds or takes more than 256 MiB of memory is stopped.
+Plugins and scripts work with the open document: they read and edit its text and selections, run Birchpad's commands, show messages and their panel. A plugin uses files only once you allow it in Plugins Admin; none can use the network. A call that runs longer than a few seconds or takes more than 256 MiB is stopped.
 :::
 
 Administrators can allow only some plugins or none with the `PluginInstall` and `AllowedPlugins` policies, and turn scripts off with `UserScripts`. See [For administrators](/en/docs/admin/).
@@ -81,7 +99,20 @@ insert(out.reduce(|sum, w| if sum == () { w } else { sum + " " + w }));
 | `message(s)`, `print(s)` | a message |
 | `show_panel(title, [lines])` | the scripts' panel |
 
-Command ids are the ones in `keymap.toml`, such as `edit.select-all`. A script stops after 50 million operations.
+Command ids are those of `keymap.toml`, such as `edit.select-all`. A script stops after 50 million operations.
+
+### Script commands
+
+A script may declare commands, one comment line each: `// command: <function> <title>`. It then shows in **Plugins → Scripts** as a submenu: **Run** runs it from the top, and each command runs it and then calls its function. They can be given keys too.
+
+```rust title="case.rhai"
+// command: upper Upper Case
+// command: lower Lower Case
+fn upper() { insert(selected_text().to_upper()); }
+fn lower() { insert(selected_text().to_lower()); }
+```
+
+Rhai's functions do not see the script's variables: put what they share in functions.
 
 ## Your own plugin
 
@@ -101,21 +132,40 @@ name = "Word Count"          # the submenu of the Plugins menu
 version = "1.0.0"
 description = "Counts the words of the document."
 author = "Jane Doe"
-api = "0.1"                  # the plugin API it is built for
+api = "0.2"                  # the plugin API it is built for
 entry = "plugin.wasm"        # the default
-events = ["saved"]           # opened, saved, closed, activated: what on-event hears
+events = ["saved"]           # what on-event and on-message hear
+permissions = ["files"]      # asks the user to let it use files
+
+[[settings]]                 # shown in Settings → Preferences… → Plugins
+key = "count-numbers"
+title = "Count numbers as words"
+kind = "bool"                # bool, number or text
+default = "true"
 ```
+
+`events`: `opened`, `saved`, `closed`, `activated`; `changed` (the text changed: typing, a command, an undo) and `selection-changed` (the caret or the selection moved), each sent once the change is done; and `message`, for the command line's `-pluginMessage`.
 
 The component implements the `plugin` world of [`crates/plugin/wit/birchpad.wit`](https://github.com/SecurityTrip/Birchpad/blob/main/crates/plugin/wit/birchpad.wit):
 
 | Export | Called |
 |---|---|
-| `commands()` | once when the plugin loads: its menu items, `{ id, title }` |
-| `run(command)` | when one of them is chosen (or bound to a key, or played in a macro) |
-| `on-event(event)` | for the events `plugin.toml` lists |
+| `commands()` | once when the plugin loads: its menu items, `{ id, title, context-menu }`; those with `context-menu` are in the text's context menu too |
+| `run(command)` | when one is chosen (or bound to a key, or played in a macro) |
+| `on-event(event)` | for the events `plugin.toml` lists, with the document concerned |
 | `on-panel-click(line)` | when a line of the plugin's panel is clicked |
+| `on-control(id, value)` | when a control of its panel is used |
+| `on-message(message)` | with `-pluginMessage`, if `events` lists `message` |
+| `run-task(task, input)` | on another thread, for a task the plugin started; returns its result |
+| `on-task-done(task, outcome)` | with what the task returned, on the active document |
 
-Through the `host` interface it reads and edits the document (positions are byte offsets into UTF-8 text), sets the selections, runs Birchpad's commands by id with JSON arguments, shows messages and fills its panel. Everything a call does to the document is one undo step; a call that fails changes nothing.
+Through the `host` interface a plugin reads and edits the document (positions are byte offsets into UTF-8 text), sets the selections, runs Birchpad's commands by id with JSON arguments, shows messages and fills its panel with lines (`show-panel`) or controls (`show-controls`: labels, buttons, text fields, check boxes, separators). Everything a call does to the document is one undo step; a call that fails changes nothing.
+
+- **Settings**: `setting(key)` and `set-setting(key, value)` keep text between runs, in `plugins/<id>.settings.toml`.
+- **Files**: `read-file`, `write-file` and `open-file` take absolute paths, and work only with `permissions = ["files"]` once the user chose **Allow Files**.
+- **Background work**: `start-task(task, input)` runs `run-task` away from the window; its result comes back through `on-task-done`. A task may run twelve times longer than a call.
+
+Plugins built for API 0.1 must be rebuilt against the new `birchpad.wit`, where what 0.1 had is unchanged.
 
 ### In Rust
 
@@ -130,7 +180,11 @@ struct WordCount;
 
 impl Guest for WordCount {
     fn commands() -> Vec<Command> {
-        vec![Command { id: "count".into(), title: "Count Words".into() }]
+        vec![Command {
+            id: "count".into(),
+            title: "Count Words".into(),
+            context_menu: true,
+        }]
     }
 
     fn run(_command: String) -> Result<(), String> {
@@ -140,8 +194,13 @@ impl Guest for WordCount {
     }
 
     fn on_event(_event: Event) {}
-
     fn on_panel_click(_line: u32) {}
+    fn on_control(_id: String, _value: String) {}
+    fn on_message(_message: String) {}
+    fn run_task(_task: String, _input: String) -> Result<String, String> {
+        Err("no tasks".into())
+    }
+    fn on_task_done(_task: String, _outcome: Result<String, String>) {}
 }
 
 export!(WordCount);
@@ -154,4 +213,4 @@ cargo build --release --target wasm32-unknown-unknown
 wasm-tools component new target/wasm32-unknown-unknown/release/word_count.wasm -o plugin.wasm
 ```
 
-A plugin that calls every API function is in the repository: [`crates/plugin/tests/fixtures/probe`](https://github.com/SecurityTrip/Birchpad/tree/main/crates/plugin/tests/fixtures/probe).
+A plugin that calls every function of the API is in the repository: [`crates/plugin/tests/fixtures/probe`](https://github.com/SecurityTrip/Birchpad/tree/main/crates/plugin/tests/fixtures/probe). To have a plugin listed in the catalog, open a pull request that adds it to [`packaging/catalog/catalog.json`](https://github.com/SecurityTrip/Birchpad/blob/main/packaging/catalog/catalog.json) with its ZIP's address, size and SHA-256. More in the [guide to plugins and scripts](https://github.com/SecurityTrip/Birchpad/blob/main/docs/plugins.md).

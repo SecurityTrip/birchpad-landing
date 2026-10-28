@@ -52,7 +52,7 @@
       "applicationCategory": "DeveloperApplication",
       "applicationSubCategory": "Text editor",
       "operatingSystem": "Windows, macOS 10.15.7+, Linux",
-      "softwareVersion": "0.5.0",
+      "softwareVersion": "0.6.0",
       "releaseNotes": "https://birchpad.ru/en/changelog/",
       "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
       "license": "https://opensource.org/licenses/MIT",
@@ -68,7 +68,7 @@
         "UTF-8, UTF-16, legacy, DOS and EBCDIC encodings",
         "Find and replace with regular expressions, Find in Files",
         "Notepad++ themes, macros, User Defined Languages",
-        "Plugins: JSON, XML, Hex, Compare, Spell Checker",
+        "Plugins: JSON Viewer, XML Tools, Hex Editor, ComparePlus-style Compare, Spell Checker",
         "Sessions that back up unsaved work",
         "Markdown and PlantUML preview",
         "Print preview",
@@ -105,7 +105,7 @@
           "name": "How ready is it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. The project is now closing the remaining gaps to full parity with Notepad++. Report bugs and ideas in GitHub Issues."
+            "text": "It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Since 0.6.0 Birchpad does what matters in Notepad++, and what comes next is what Notepad++ does not have: a command palette, LSP, Git. Report bugs and ideas in GitHub Issues."
           }
         },
         {
@@ -169,7 +169,7 @@
 <div class="hero">
   <div class="wrap">
     <div>
-      <a class="eyebrow" href="/en/changelog/"><span class="dot"></span>Beta · version <span data-version>0.5.0</span></a>
+      <a class="eyebrow" href="/en/changelog/"><span class="dot"></span>Beta · version <span data-version>0.6.0</span></a>
       <h1>A fast text editor <em>in the spirit of Notepad++</em></h1>
       <p class="lead">For Windows, macOS and Linux. Written in Rust, drawn on the GPU, with no browser engine inside. Free, open source, and without telemetry.</p>
       <div class="cta">
@@ -283,7 +283,7 @@
         <div>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v4M15 3v4M7 7h10v4a5 5 0 01-10 0zM12 16v5"/></svg></div>
           <h3>Plugins</h3>
-          <p>Built-in versions of popular Notepad++ plugins: JSON Viewer, XML Tools, Hex Editor, Compare and a Spell Checker with Hunspell dictionaries. Write your own plugins in any language as WebAssembly, or short scripts in Rhai. Neither can touch your files or the network.</p>
+          <p>Built-in versions of popular Notepad++ plugins: JSON Viewer with its tree, XML Tools with XPath and schema validation, Hex Editor in the document itself, ComparePlus-style Compare and a Spell Checker. Write your own plugins in any language as WebAssembly, or short scripts in Rhai; Plugins Admin has a catalog. A plugin uses files only once you allow it, and never the network.</p>
         </div>
 <pre class="snippet"><span class="c">// scripts/shout.rhai</span>
 <span class="k">let</span> s = <span class="f">selected_text</span>();
@@ -385,32 +385,32 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
     <p class="sub">Pick an installer that updates itself, an MSI for administrators, or a portable ZIP. The <a href="/en/docs/install/">documentation</a> helps you choose.</p>
     <div class="dl-box">
       <div class="dl-head">
-        <p>Latest version: <span class="dl-ver">Birchpad <span data-version>0.5.0</span></span></p>
+        <p>Latest version: <span class="dl-ver">Birchpad <span data-version>0.6.0</span></span></p>
         <a href="https://github.com/SecurityTrip/Birchpad/releases">All releases and nightly builds →</a>
       </div>
       <div class="dl-list">
         <div class="os" data-os="windows">
           <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>Windows</h3>
           <ul>
-            <li><a data-asset="windows-x64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-windows-x64-setup.exe"><span>Installer x64</span><span data-size>33 MB</span></a></li>
-            <li><a data-asset="windows-arm64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-windows-arm64-setup.exe"><span>Installer ARM64</span><span data-size>30 MB</span></a></li>
-            <li><a data-asset="windows-x64.msi" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-windows-x64.msi"><span>MSI for administrators</span><span data-size>18 MB</span></a></li>
-            <li><a data-asset="windows-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-windows-x64.zip"><span>Portable ZIP x64</span><span data-size>22 MB</span></a></li>
-            <li><a data-asset="windows-arm64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-windows-arm64.zip"><span>Portable ZIP ARM64</span><span data-size>20 MB</span></a></li>
+            <li><a data-asset="windows-x64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-windows-x64-setup.exe"><span>Installer x64</span><span data-size>34 MB</span></a></li>
+            <li><a data-asset="windows-arm64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-windows-arm64-setup.exe"><span>Installer ARM64</span><span data-size>30 MB</span></a></li>
+            <li><a data-asset="windows-x64.msi" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-windows-x64.msi"><span>MSI for administrators</span><span data-size>19 MB</span></a></li>
+            <li><a data-asset="windows-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-windows-x64.zip"><span>Portable ZIP x64</span><span data-size>23 MB</span></a></li>
+            <li><a data-asset="windows-arm64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-windows-arm64.zip"><span>Portable ZIP ARM64</span><span data-size>21 MB</span></a></li>
           </ul>
           <p class="note">The installer needs no administrator rights and updates itself. SmartScreen asks on the first start: “More info” → “Run anyway”.</p>
         </div>
         <div class="os" data-os="macos">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>macOS</h3>
           <ul>
-            <li><a data-asset="macos.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-macos.zip"><span>Birchpad.app</span><span data-size>44 MB</span></a></li>
+            <li><a data-asset="macos.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-macos.zip"><span>Birchpad.app</span><span data-size>45 MB</span></a></li>
           </ul>
           <p class="note">macOS 10.15.7 or later, Apple silicon and Intel. Until the app is notarized, open it the first time with Control-click → Open.</p>
         </div>
         <div class="os" data-os="linux">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>Linux</h3>
           <ul>
-            <li><a data-asset="linux-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.5.0/birchpad-0.5.0-linux-x64.zip"><span>Portable ZIP x64</span><span data-size>30 MB</span></a></li>
+            <li><a data-asset="linux-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.6.0/birchpad-0.6.0-linux-x64.zip"><span>Portable ZIP x64</span><span data-size>30 MB</span></a></li>
           </ul>
           <p class="note">To see Birchpad in the applications menu, copy the <code>.desktop</code> and <code>.png</code> files from the archive — <a href="/en/docs/install/#linux">instructions</a>.</p>
         </div>
@@ -435,8 +435,8 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
       <li class="done"><span class="pin">✓</span><div><h3>Search and navigation <span class="tag">0.1.3</span></h3><p>Regular expressions, Find in Files, marks, side panels, navigation history.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Customization <span class="tag">0.1.4</span></h3><p>Themes and Notepad++ theme import, Preferences, Shortcut Mapper, macros, UDL, auto-completion, printing, the Russian interface.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Plugins <span class="tag">0.1.5</span></h3><p>WebAssembly plugins, Rhai scripts, Plugins Admin; JSON, XML, Hex, Compare, Spell Checker.</p></div></li>
-      <li class="now"><span class="pin">6</span><div><h3>Full parity with Notepad++ <span class="tag next">0.2.0 → 0.6.0</span></h3><p>Done in 0.2.0–0.5.0: tabs as in Notepad++, the Window menu, the toolbar, context menus, Markdown and PlantUML preview, print preview, the UDL editor, a German interface. Next, in 0.6.0: a wider plugin API, ComparePlus-style comparison, JSON Viewer’s tree, Hex Editor in the document itself.</p></div></li>
-      <li><span class="pin">7</span><div><h3>Beyond Notepad++ <span class="tag">0.7.0 → 1.0</span></h3><p>A command palette, LSP, Git, an integrated terminal, multi-gigabyte files, remote editing over SSH, Vim mode.</p></div></li>
+      <li class="done"><span class="pin">✓</span><div><h3>Full parity with Notepad++ <span class="tag">0.2.0 → 0.6.0</span></h3><p>Tabs and the Window menu, the toolbar, Markdown and PlantUML preview, print preview, the UDL editor, a German interface, plugin API 0.2, ComparePlus-style Compare.</p></div></li>
+      <li class="now"><span class="pin">7</span><div><h3>Beyond Notepad++ <span class="tag next">0.7.0 → 1.0</span></h3><p>A command palette, LSP, Git, an integrated terminal, multi-gigabyte files, remote editing over SSH, Vim mode.</p></div></li>
     </ol>
   </div>
 </section>
@@ -473,7 +473,7 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
       </details>
       <details>
         <summary>How ready is it?</summary>
-        <p>It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. The project is now closing the remaining gaps to full parity with Notepad++. Report bugs and ideas in <a href="https://github.com/SecurityTrip/Birchpad/issues">GitHub Issues</a>.</p>
+        <p>It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Since 0.6.0 Birchpad does what matters in Notepad++, and what comes next is what Notepad++ does not have: a command palette, LSP, Git. Report bugs and ideas in <a href="https://github.com/SecurityTrip/Birchpad/issues">GitHub Issues</a>.</p>
       </details>
       <details>
         <summary>Do Notepad++ plugins work?</summary>

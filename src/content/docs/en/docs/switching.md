@@ -38,4 +38,4 @@ Notepad++ plugins are Windows DLLs, and Birchpad does not load them. Instead, th
 
 ## Not there yet
 
-A wider plugin API (settings and panels of their own), ComparePlus's aligned comparison, JSON Viewer's tree, XML Tools' XPath and XSD validation, and Hex Editor in the document itself. All of them are planned for 0.6.0 on the [roadmap](/en/roadmap/).
+The last comparison with Notepad++ 8's menus, Preferences and command line (version 0.6.0) found little: the **Edit → Auto-Completion** submenu, sorting in locale order, Column Mode…, a few options for the window, files and search, and `-fullReadOnly`. They are planned for 0.7.0 on the [roadmap](/en/roadmap/). What has no meaning for Birchpad will not come: DirectWrite (GPUI draws the text), colorized toolbar icons, Preferences → File Association (Birchpad makes itself the default editor) and the Notepad++ installer's options.

@@ -245,9 +245,12 @@ See [Updates and the network](/en/docs/updates/).
 
 See [Plugins and scripts](/en/docs/plugins/).
 
-### Reserved
+### `[network]` and `[diagnostics]`
 
-`network.online-features` and `diagnostics.crash-reports` (default `true` and `false`) are read already but belong to features still to come: plugins, online features and crash reports.
+| Key | Default | Meaning |
+|---|---|---|
+| `network.online-features` | `true` | Online features: the plugin catalog and downloading dictionaries and PlantUML. Updates are separate, in `[updates]`. |
+| `diagnostics.crash-reports` | `false` | Reserved: Birchpad sends no crash reports yet. |
 
 ## Keyboard shortcuts
 

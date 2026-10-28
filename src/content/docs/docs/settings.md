@@ -245,9 +245,12 @@ ansi-encoding = "windows-1251"
 
 См. [Плагины и скрипты](/docs/plugins/).
 
-### Зарезервировано
+### `[network]` и `[diagnostics]`
 
-Ключи `network.online-features` и `diagnostics.crash-reports` (по умолчанию `true` и `false`) уже читаются, но относятся к будущим возможностям: плагинам, сетевым функциям и отчётам о сбоях.
+| Ключ | По умолчанию | Значение |
+|---|---|---|
+| `network.online-features` | `true` | Сетевые функции: каталог плагинов, загрузка словарей и PlantUML. Обновления — отдельно, в `[updates]`. |
+| `diagnostics.crash-reports` | `false` | Зарезервировано: Birchpad пока не отправляет отчёты о сбоях. |
 
 ## Сочетания клавиш
 
