@@ -44,7 +44,19 @@ The **Window** menu lists the active view’s documents, sorts them by name, pat
 
 **View → Always on Top**, **Toggle Full Screen Mode** (<kbd>F11</kbd>), **Post-It** (<kbd>F12</kbd>: the text alone, without menus, tabs and panels) and **Distraction Free Mode** (the text in a column in the middle). A button in the corner leaves the last two. **Move to New Instance** and **Open in New Instance** open the file in a Birchpad of its own.
 
+On Windows and macOS the window can minimize to the system tray (**Settings → Preferences… → MISC**). The first time the window is closed, Birchpad asks whether to minimize it to the tray or to close; the answer can be changed there too. **File → Exit** always closes.
+
 Under the menus is a toolbar with Notepad++’s buttons. Its size and visibility are in Preferences, its buttons and their order in `toolbar.buttons`.
+
+## Command palette
+
+**View → Command Palette…** (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>) finds any command by a few letters of its name: the menus' commands, macros, the **Run** menu's command lines, plugins' and scripts' commands, each with its shortcut. The commands you ran from it last come first; **Settings → Preferences… → Command Palette** sets how many.
+
+## Syntax-aware selection
+
+**Edit → Expand Selection** (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>↑</kbd>) grows the selection to the piece of syntax around it: a word, a string's text, the string, what is between brackets, the brackets, the statement, the function. **Shrink Selection** (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>↓</kbd>) goes back. In plain text it grows to the word, the line, then everything.
+
+Sticky scroll (**Settings → Preferences… → Editing**) keeps the first lines of the blocks around the top of the view there while you scroll, five at most by default; a click on one goes to it.
 
 ## Multiple carets and columns
 
@@ -60,7 +72,7 @@ Widths are counted in cells, as in a terminal: Chinese, Japanese and Korean char
 Everything in the **Edit** menu is one undo step and has Notepad++'s keys:
 
 - duplicate (<kbd>Ctrl</kbd>+<kbd>D</kbd>), delete, move up and down (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd>), join (<kbd>Ctrl</kbd>+<kbd>J</kbd>) and split lines;
-- sort lexicographically, ignoring case, as integers, as decimals with a comma or a dot, by length — ascending and descending; sort by the columns of a rectangular selection; reverse and randomize;
+- sort lexicographically, in locale order (letters, then accents, then case), ignoring case, as integers, as decimals with a comma or a dot, by length — ascending and descending; sort by the columns of a rectangular selection; reverse and randomize;
 - remove duplicate, consecutive duplicate and empty lines, trim spaces, convert tabs and spaces;
 - case: UPPERCASE, lowercase, Proper Case, Sentence case, iNVERT cASE, rAnDoM cAsE;
 - line and block comments with the document's language tokens (<kbd>Ctrl</kbd>+<kbd>Q</kbd>).

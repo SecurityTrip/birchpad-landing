@@ -45,6 +45,7 @@ Open documents are searched with their unsaved changes, and replacing in them is
 
 ## Going places
 
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> (**Search → Go to File…**) finds a file of the folders open as workspace, or a recent file, by parts of its path: `app work` finds `crates/app/src/workspace.rs`. **Settings → Preferences… → Go to File** chooses the files listed (by default not those in `.git`, `node_modules` and `target`).
 - <kbd>Ctrl</kbd>+<kbd>G</kbd> goes to a line or offset.
 - <kbd>Ctrl</kbd>+<kbd>B</kbd> goes to the matching brace, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd> selects up to it.
 - **Search → Go Back** and **Go Forward** (<kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd>) return to where the caret jumped from: another document, a search result, Go To. A closed file opens again.

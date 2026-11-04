@@ -37,7 +37,9 @@ Everything Phases 1–5 did differently or left for later. The phase ships in se
 
 ## 7. Beyond Notepad++ — 0.7.0 → 1.0.0
 
-- **0.7.0**: a command palette, a fuzzy file finder, syntax-aware selection, sticky scroll, and the few menus, Preferences and command line options of Notepad++ 8 that the last comparison found missing.
+- **✓ 0.7.0**: a command palette, Go to File, syntax-aware selection, sticky scroll, and the few menus, Preferences and command line options of Notepad++ 8 that the last comparison found missing.
+- **✓ 0.7.1–0.7.6**: minimizing to the system tray, a custom dark tone; zoom, a white background and export for PlantUML diagrams; fixes and security updates.
+- **✓ 0.7.7**: PlantUML on real repositories: highlighting and folding of its own, `!include` through variables and functions, mistakes on their own lines, Graphviz and ELK, PlantUML kept running.
 - **0.8.0**: an LSP client, Git (changes in the gutter, blame, diff), an integrated terminal.
 - **0.9.0**: multi-gigabyte files, CSV and JSON viewers, remote editing over SSH/SFTP, Vim mode.
 - **1.0.0**: closing the phase.

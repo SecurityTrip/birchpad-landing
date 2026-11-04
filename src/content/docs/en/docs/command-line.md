@@ -15,12 +15,14 @@ birchpad [-n<line>] [-c<column>] [-p<position>] [-l<language>] [-ro] [-multiInst
 | `-p<position>` | Go to a byte offset (from 0); wins over `-n` and `-c`. |
 | `-l<language>` | Highlighting language: `-lcpp`, `-lpython`, `-lnormal`. Notepad++'s names and [Birchpad's ids](/en/docs/languages/) both work. |
 | `-ro` | Open the files read-only. |
+| `-fullReadOnly` | Every document read-only for this run. |
+| `-fullReadOnlySavingForbidden` | The same, and nothing can be saved. |
 | `-multiInst` | Start a separate instance instead of handing the files to a running one. |
 | `-nosession` | Neither restore nor save the [session](/en/docs/sessions/). |
 | `-openSession` | The files are sessions (Birchpad's, or Notepad++'s `session.xml`). |
 | `-notabbar` | Hide the tab bar. |
 | `-alwaysOnTop` | Keep the window on top. |
-| `-systemtray` | Start minimized. |
+| `-systemtray` | Start in the system tray (minimized on Linux). |
 | `-x<pixels>`, `-y<pixels>` | The window's position. |
 | `-titleAdd="text"` | Add text to the window title. |
 | `-settingsDir="folder"` | Read the settings from this folder. |
@@ -44,7 +46,7 @@ When Birchpad is already running, a second launch hands its files to it, where t
 
 ## Notepad++ compatibility
 
-Notepad++'s options work as they do there. `-pluginMessage=` goes to plugins. The few options Birchpad does not support yet (such as `-fullReadOnly`) are accepted and ignored. An unknown option gives a warning but does not stop the start. So file associations, shortcuts and scripts written for Notepad++ keep working once the program path in them is changed.
+Notepad++'s options work as they do there. `-pluginMessage=` goes to plugins. The Notepad++ installer's options and others that have no meaning for Birchpad are accepted and ignored. An unknown option gives a warning but does not stop the start. So file associations, shortcuts and scripts written for Notepad++ keep working once the program path in them is changed.
 
 ## Examples
 

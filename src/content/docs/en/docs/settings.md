@@ -206,6 +206,10 @@ See [Sessions and backup](/en/docs/sessions/).
 | Key | Default | Meaning |
 |---|---|---|
 | `plantuml` | `"plantuml"` | What draws PlantUML: the `plantuml` command (or a path to it), or a path to `plantuml.jar`. With `plantuml`, the PlantUML Birchpad installed is used too. |
+| `plantuml-layout` | `"automatic"` | What lays diagrams out: `automatic` (Graphviz when installed, else smetana), `smetana`, `graphviz` or `elk`. |
+| `plantuml-include-path` | `""` | Folders `!include` looks in after the document's, separated as in `PATH`. |
+| `plantuml-background` | `"white"` | The diagrams' background: `white` or `theme`. |
+| `plantuml-png-scale` | `2` | The scale of diagrams copied or exported as PNG, 1 to 8. |
 
 See [Markdown and PlantUML preview](/en/docs/preview/).
 
