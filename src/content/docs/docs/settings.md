@@ -206,6 +206,10 @@ ansi-encoding = "windows-1251"
 | Ключ | По умолчанию | Значение |
 |---|---|---|
 | `plantuml` | `"plantuml"` | Чем рисовать PlantUML: команда `plantuml` (или путь к ней) либо путь к `plantuml.jar`. При `plantuml` используется и PlantUML, поставленный самим Birchpad. |
+| `plantuml-layout` | `"automatic"` | Раскладка диаграмм: `automatic` (Graphviz, если установлен, иначе smetana), `smetana`, `graphviz` или `elk`. |
+| `plantuml-include-path` | `""` | Папки, где `!include` ищет файлы после папки документа, через разделитель, как в `PATH`. |
+| `plantuml-background` | `"white"` | Фон диаграмм: `white` или `theme` (как в теме). |
+| `plantuml-png-scale` | `2` | Масштаб диаграмм, скопированных или сохранённых в PNG, от 1 до 8. |
 
 См. [Предпросмотр Markdown и PlantUML](/docs/preview/).
 
