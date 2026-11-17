@@ -22,9 +22,9 @@ To uninstall, use **Windows Settings → Apps → Installed apps**. A portable c
 
 ## macOS
 
-`birchpad-<version>-macos.zip` holds `Birchpad.app` for macOS 10.15.7 or later, on Apple silicon and Intel. Unzip it and move the app to Applications.
+`birchpad-<version>-macos.dmg` holds `Birchpad.app` for macOS 10.15.7 or later, on Apple silicon and Intel. Open the image and drag Birchpad.app to Applications. For releases before 0.8.2, unzip the file and move the app to Applications.
 
-The app is not notarized yet: open it the first time with **Control-click → Open** and confirm.
+The app is not notarized yet. If macOS blocks the first launch, use [Open Anyway in Privacy & Security](https://support.apple.com/en-us/102445).
 
 ## Linux
 
