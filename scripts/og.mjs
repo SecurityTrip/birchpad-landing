@@ -13,12 +13,12 @@ const TEXT = {
   ru: {
     tagline: "Текстовый редактор в духе Notepad++",
     line: "Windows · macOS · Linux — бесплатно, с открытым кодом",
-    chips: ["50 языков", "Темы и макросы", "Плагины", "Без телеметрии"],
+    chips: ["51 язык", "Темы и макросы", "Плагины", "LSP, Git, терминал"],
   },
   en: {
     tagline: "A text editor in the spirit of Notepad++",
     line: "Windows · macOS · Linux — free and open source",
-    chips: ["50 languages", "Themes and macros", "Plugins", "No telemetry"],
+    chips: ["51 languages", "Themes and macros", "Plugins", "LSP, Git, terminal"],
   },
 };
 

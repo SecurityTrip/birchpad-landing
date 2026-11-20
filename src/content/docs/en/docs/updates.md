@@ -3,7 +3,7 @@ title: Updates and the network
 description: How Birchpad checks for and installs updates, the stable, beta and nightly channels, the signed manifest and the zero-network mode.
 ---
 
-On its own, Birchpad uses the network only for updates: shortly after it starts, then once a day, and when you pick **Help → Check for Updates…**. Anything else happens only when you ask: PlantUML for the [preview](/en/docs/preview/), the plugin catalog and dictionaries (see [Plugins](/en/docs/plugins/#installing-plugins)). Nothing else: no telemetry, no crash reports, no accounts. See [Privacy](/en/privacy/).
+Birchpad checks for updates shortly after starting, then once a day and when you pick **Help → Check for Updates…**. It requests the signed manifest from the Birchpad update service and falls back to GitHub if that fails. Update checks send install statistics by default. Turn them off in **Settings → Preferences… → Updates** or set `updates.statistics = false`. See [Privacy](/en/privacy/).
 
 ## Modes
 
@@ -11,9 +11,9 @@ On its own, Birchpad uses the network only for updates: shortly after it starts,
 |---|---|
 | `auto` (default) | A new version downloads in the background and installs on the next start. |
 | `notify` | Birchpad announces a new version but downloads nothing. |
-| `off` | No network requests at all. |
+| `off` | Disables update checks and downloads. |
 
-Only Birchpad from the per-user installer (`…-setup.exe`) updates itself. Portable copies, the MSI and the macOS and Linux builds show where to download the new version.
+Copies installed through the per-user Windows EXE or the macOS PKG update automatically. Install new versions of the MSI, DMG and portable builds manually.
 
 In the window that announces an update, **Update** downloads the new version, checks it, installs it and restarts Birchpad with your documents, with a progress bar in the window; a download in the background shows its progress in the status bar. Don't show again turns update checks off. **Help → Set Updater Proxy…** (`updates.proxy`) sets a proxy for updates; by default Birchpad uses `HTTPS_PROXY` or `ALL_PROXY`, or the system's on Windows.
 
@@ -33,4 +33,4 @@ Each release comes with SHA-256 checksums, an SBOM and GitHub build provenance; 
 
 ## For administrators
 
-The `UpdateMode`, `UpdateChannel` and `UpdateUrl` policies set the same so that users cannot change it. The MSI does not update itself; the administrator updates it. See [For administrators](/en/docs/admin/).
+The `UpdateMode`, `UpdateStatistics`, `UpdateChannel` and `UpdateUrl` policies set the same so that users cannot change it. The MSI does not update itself; the administrator updates it. See [For administrators](/en/docs/admin/).

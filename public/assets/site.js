@@ -38,7 +38,7 @@
       return arm ? { os: "windows", label: T.winArm, asset: "windows-arm64-setup.exe" }
                  : { os: "windows", label: T.win, asset: "windows-x64-setup.exe" };
     }
-    if (/Mac/i.test(platform)) return { os: "macos", label: T.mac, asset: "macos.zip" };
+    if (/Mac/i.test(platform)) return { os: "macos", label: T.mac, asset: "macos.dmg" };
     if (/Linux|X11/i.test(platform)) return { os: "linux", label: T.linux, asset: "linux-x64.zip" };
     return null;
   }

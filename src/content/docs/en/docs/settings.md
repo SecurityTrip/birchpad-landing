@@ -45,7 +45,7 @@ See [For administrators](/en/docs/admin/).
 | Key | Default | Meaning |
 |---|---|---|
 | `theme` | `"Default"` | Theme at startup: `Default`, `Dark`, or a file name from the `themes` folder without its extension. |
-| `language` | `"auto"` | Interface language: `en`, `ru`, `de`, or `auto` (the system's). |
+| `language` | `"auto"` | Interface language: `en`, `ru`, `de`, `fr`, `es`, or `auto` (the system's). |
 | `native-lang` | `""` | A Notepad++ translation file (such as `localization/german.xml` of a Notepad++ folder) whose menu and command names come before Birchpad's. |
 | `interface` | `"theme"` | Colors of menus, tabs, panels and dialogs: `theme` (the theme's), `light`, `dark` or `system`. |
 | `title-file-name-only` | `false` | Only the file name in the title bar, without the path. |
@@ -232,8 +232,9 @@ See [Printing](/en/docs/macros-run-tools/#printing).
 
 | Key | Default | Meaning |
 |---|---|---|
-| `mode` | `"auto"` | `off`: no network requests at all; `notify`: only announce; `auto`: download and install on restart. |
+| `mode` | `"auto"` | `off`: disable update checks and downloads; `notify`: only announce; `auto`: download and install on restart. |
 | `channel` | `"stable"` | `stable`, `beta` or `nightly`. |
+| `statistics` | `true` | Send install statistics when checking for updates. |
 | `url` | — | Another address for the signed update manifest, such as an internal mirror. |
 | `proxy` | `\"\"` | The proxy for updates: `http://host:port`, `socks5://host:port` or `host:port`. Empty: `HTTPS_PROXY`, `ALL_PROXY`, or the system's on Windows. |
 
