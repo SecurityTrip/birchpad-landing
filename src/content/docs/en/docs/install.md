@@ -29,7 +29,9 @@ Both builds support macOS 10.15.7 or later on Apple silicon and Intel.
 | `birchpad-<version>-macos.dmg` | Open the disk image and drag Birchpad.app to Applications. Install updates manually. |
 | `birchpad-<version>-macos.pkg` | Run the installer. This build supports [automatic updates](/en/docs/updates/). |
 
-The app is not notarized yet, and the installer is not signed with Developer ID. If macOS blocks it, use [Open Anyway in Privacy & Security](https://support.apple.com/102445).
+For releases before 0.8.2, unzip the file and move Birchpad.app to Applications.
+
+The app is not notarized yet, and the installer is not signed with Developer ID. If macOS blocks it, use [Open Anyway in Privacy & Security](https://support.apple.com/en-us/102445).
 
 ## Linux
 

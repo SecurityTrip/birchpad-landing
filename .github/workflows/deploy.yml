@@ -33,6 +33,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node --test scripts/site-downloads.test.mjs
       - run: npm run build
         env:
           GITHUB_TOKEN: ${{ github.token }} # dates of Birchpad's sources, for <lastmod>

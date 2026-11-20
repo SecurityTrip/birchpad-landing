@@ -47,10 +47,11 @@
 
   function applyRelease(rel) {
     const version = rel.tag_name.replace(/^v/, "");
+    const assetFor = (suffix) => rel.assets.find((x) => x.name === `birchpad-${version}-${suffix}`);
     document.querySelectorAll("[data-version]").forEach((el) => { el.textContent = version; });
     links().forEach((a) => {
-      const suffix = "-" + a.dataset.asset;
-      const asset = rel.assets.find((x) => x.name.startsWith("birchpad-") && x.name.endsWith(suffix));
+      const suffix = a.dataset.asset;
+      const asset = assetFor(suffix) || (suffix === "macos.dmg" && assetFor("macos.zip"));
       if (!asset) return;
       a.href = asset.browser_download_url;
       const size = a.querySelector("[data-size]");
