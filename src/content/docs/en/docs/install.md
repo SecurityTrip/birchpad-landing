@@ -22,9 +22,16 @@ To uninstall, use **Windows Settings → Apps → Installed apps**. A portable c
 
 ## macOS
 
-`birchpad-<version>-macos.dmg` holds `Birchpad.app` for macOS 10.15.7 or later, on Apple silicon and Intel. Open the image and drag Birchpad.app to Applications. For releases before 0.8.2, unzip the file and move the app to Applications.
+Both builds support macOS 10.15.7 or later on Apple silicon and Intel.
 
-The app is not notarized yet. If macOS blocks the first launch, use [Open Anyway in Privacy & Security](https://support.apple.com/en-us/102445).
+| File | How to install |
+|---|---|
+| `birchpad-<version>-macos.dmg` | Open the disk image and drag Birchpad.app to Applications. Install updates manually. |
+| `birchpad-<version>-macos.pkg` | Run the installer. This build supports [automatic updates](/en/docs/updates/). |
+
+For releases before 0.8.2, unzip the file and move Birchpad.app to Applications.
+
+The app is not notarized yet, and the installer is not signed with Developer ID. If macOS blocks it, use [Open Anyway in Privacy & Security](https://support.apple.com/en-us/102445).
 
 ## Linux
 
@@ -46,7 +53,7 @@ Every release is built on GitHub's runners from the open source. Check that a fi
 - with GitHub's build provenance (needs the [GitHub CLI](https://cli.github.com/)):
 
 ```sh
-gh attestation verify birchpad-0.7.7-windows-x64-setup.exe --repo SecurityTrip/Birchpad
+gh attestation verify birchpad-0.8.3-windows-x64-setup.exe --repo SecurityTrip/Birchpad
 ```
 
 Every release also has an SBOM listing all dependencies in CycloneDX format (`…-sbom.cdx.json`).

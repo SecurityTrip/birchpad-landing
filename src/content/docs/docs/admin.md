@@ -8,13 +8,13 @@ description: Установка Birchpad на компьютеры органи�
 `birchpad-<версия>-windows-x64.msi` ставит Birchpad для всех пользователей в `Program Files\Birchpad`. Такая копия сама не обновляется — новые версии раздаёт администратор, например через Intune, SCCM или групповую политику. Тихая установка:
 
 ```text
-msiexec /i birchpad-0.7.7-windows-x64.msi /qn
+msiexec /i birchpad-0.8.3-windows-x64.msi /qn
 ```
 
 Пункт «Edit with Birchpad» в контекстном меню Проводника ставится отдельным компонентом `ExplorerMenu`. Чтобы установить Birchpad без него:
 
 ```text
-msiexec /i birchpad-0.7.7-windows-x64.msi /qn ADDLOCAL=Main
+msiexec /i birchpad-0.8.3-windows-x64.msi /qn ADDLOCAL=Main
 ```
 
 У MSI постоянный `UpgradeCode`, поэтому новая версия ставится поверх старой.
@@ -37,7 +37,8 @@ msiexec /i birchpad-0.7.7-windows-x64.msi /qn ADDLOCAL=Main
 
 | Значение реестра | Тип | Ключ настроек | Что делает |
 |---|---|---|---|
-| `UpdateMode` | `REG_SZ` | `updates.mode` | `off`, `notify` или `auto`. `off` гарантирует отсутствие сетевых запросов. |
+| `UpdateMode` | `REG_SZ` | `updates.mode` | `off`, `notify` или `auto`. `off` отключает проверку и загрузку обновлений. |
+| `UpdateStatistics` | `REG_DWORD` | `updates.statistics` | `0` отключает статистику установок. |
 | `UpdateChannel` | `REG_SZ` | `updates.channel` | `stable`, `beta` или `nightly`. |
 | `UpdateUrl` | `REG_SZ` | `updates.url` | Адрес манифеста обновлений на внутреннем зеркале; подпись проверяется всё равно. |
 | `BackupUnsaved` | `REG_DWORD` | `session.backup-unsaved` | `0` — не хранить содержимое документов в резервных копиях. |

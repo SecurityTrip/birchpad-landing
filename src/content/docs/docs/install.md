@@ -22,9 +22,16 @@ description: Какой файл Birchpad скачать для Windows, macOS �
 
 ## macOS
 
-`birchpad-<версия>-macos.dmg` содержит `Birchpad.app` для macOS 10.15.7 и новее, для Apple silicon и Intel. Откройте образ и перетащите Birchpad.app в «Программы». Для выпусков до 0.8.2 распакуйте ZIP и перенесите приложение в «Программы».
+Обе сборки подходят для macOS 10.15.7 и новее на Apple silicon и Intel.
 
-Приложение пока не нотаризовано. Если macOS блокирует первый запуск, нажмите [«Всё равно открыть» в разделе «Конфиденциальность и безопасность»](https://support.apple.com/ru-ru/102445).
+| Файл | Как установить |
+|---|---|
+| `birchpad-<версия>-macos.dmg` | Откройте образ и перетащите Birchpad.app в «Программы». Обновления устанавливаются вручную. |
+| `birchpad-<версия>-macos.pkg` | Запустите установщик. Эта сборка поддерживает [автообновления](/docs/updates/). |
+
+Для выпусков до 0.8.2 распакуйте ZIP и перенесите Birchpad.app в «Программы».
+
+Приложение пока не нотаризовано, а установщик не подписан сертификатом Developer ID. Если macOS блокирует открытие, воспользуйтесь пунктом «Всё равно открыть» в разделе [«Конфиденциальность и безопасность»](https://support.apple.com/ru-ru/102445).
 
 ## Linux
 
@@ -46,7 +53,7 @@ description: Какой файл Birchpad скачать для Windows, macOS �
 - по подтверждению сборки GitHub (нужен [GitHub CLI](https://cli.github.com/)):
 
 ```sh
-gh attestation verify birchpad-0.7.7-windows-x64-setup.exe --repo SecurityTrip/Birchpad
+gh attestation verify birchpad-0.8.3-windows-x64-setup.exe --repo SecurityTrip/Birchpad
 ```
 
 В каждом релизе также есть SBOM — список всех зависимостей в формате CycloneDX (`…-sbom.cdx.json`).

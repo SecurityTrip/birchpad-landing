@@ -3,7 +3,7 @@ title: Find and replace
 description: Birchpad's search modes, regular expressions, Find in Files, marks, incremental search and the search results panel.
 ---
 
-Find, Replace and Mark open as a panel at the bottom of the window with three tabs: <kbd>Ctrl</kbd>+<kbd>F</kbd>, <kbd>Ctrl</kbd>+<kbd>H</kbd> and <kbd>Ctrl</kbd>+<kbd>M</kbd>. The panel never covers the text and stays open while you need it.
+Open **Find**, **Replace** or **Mark** with <kbd>Ctrl</kbd>+<kbd>F</kbd>, <kbd>Ctrl</kbd>+<kbd>H</kbd> or <kbd>Ctrl</kbd>+<kbd>M</kbd>. Find opens in its own window by default. The button next to Close docks it below the editor. Birchpad remembers the choice in `searching.find-panel-floats`.
 
 ## Search modes
 

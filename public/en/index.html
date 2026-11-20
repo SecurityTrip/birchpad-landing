@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Birchpad — a free Notepad++ alternative for Windows, macOS and Linux</title>
-<meta name="description" content="A free, open-source text editor: tabs, highlighting for 50 languages, multiple carets, a command palette, Markdown preview, themes, macros and plugins. A Notepad++ alternative for macOS and Linux, with no telemetry.">
+<meta name="description" content="A free, open-source text editor for Windows, macOS and Linux with highlighting for 51 languages, a command palette, an LSP client, Git integration and an integrated terminal.">
 <link rel="canonical" href="https://birchpad.ru/en/">
 <link rel="alternate" hreflang="ru" href="https://birchpad.ru/">
 <link rel="alternate" hreflang="en" href="https://birchpad.ru/en/">
@@ -20,7 +20,7 @@
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:url" content="https://birchpad.ru/en/">
 <meta property="og:title" content="Birchpad — a free Notepad++ alternative for Windows, macOS and Linux">
-<meta property="og:description" content="A free, open-source text editor: tabs, highlighting for 50 languages, multiple carets, a command palette, Markdown preview, themes, macros and plugins. A Notepad++ alternative for macOS and Linux, with no telemetry.">
+<meta property="og:description" content="A free, open-source text editor for Windows, macOS and Linux with highlighting for 51 languages, a command palette, an LSP client, Git integration and an integrated terminal.">
 <meta property="og:image" content="https://birchpad.ru/assets/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -52,18 +52,21 @@
       "applicationCategory": "DeveloperApplication",
       "applicationSubCategory": "Text editor",
       "operatingSystem": "Windows, macOS 10.15.7+, Linux",
-      "softwareVersion": "0.7.7",
+      "softwareVersion": "0.8.3",
       "releaseNotes": "https://birchpad.ru/en/changelog/",
       "downloadUrl": "https://github.com/SecurityTrip/Birchpad/releases/latest",
       "license": "https://opensource.org/licenses/MIT",
       "isAccessibleForFree": true,
       "inLanguage": [
         "ru",
-        "en"
+        "en",
+        "de",
+        "fr",
+        "es"
       ],
       "featureList": [
         "Pinned and colored tabs, split view, the Window menu",
-        "Syntax highlighting and folding for 50 languages",
+        "Syntax highlighting and folding for 51 languages",
         "Multiple carets and rectangular selection",
         "UTF-8, UTF-16, legacy, DOS and EBCDIC encodings",
         "Find and replace with regular expressions, Find in Files",
@@ -73,7 +76,8 @@
         "Sessions that back up unsaved work",
         "Markdown and PlantUML preview with highlighting, zoom and diagram export",
         "Print preview",
-        "English, Russian and German interface"
+        "An LSP client, Git integration and an integrated terminal",
+        "English, Russian, German, French and Spanish interface"
       ],
       "sameAs": [
         "https://github.com/SecurityTrip/Birchpad"
@@ -106,7 +110,7 @@
           "name": "How ready is it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Birchpad does what matters in Notepad++, and since 0.7.0 adds what Notepad++ does not have: a command palette, Go to File, syntax-aware selection. LSP, Git and an integrated terminal come next. Report bugs and ideas in GitHub Issues."
+            "text": "It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Birchpad does what matters in Notepad++, and since 0.7.0 adds what Notepad++ does not have: a command palette, Go to File, syntax-aware selection. Version 0.8.0 added an LSP client, Git integration and an integrated terminal. Report bugs and ideas in GitHub Issues."
           }
         },
         {
@@ -170,9 +174,9 @@
 <div class="hero">
   <div class="wrap">
     <div>
-      <a class="eyebrow" href="/en/changelog/"><span class="dot"></span>Beta · version <span data-version>0.7.7</span></a>
+      <a class="eyebrow" href="/en/changelog/"><span class="dot"></span>Beta · version <span data-version>0.8.3</span></a>
       <h1>A fast text editor <em>in the spirit of Notepad++</em></h1>
-      <p class="lead">For Windows, macOS and Linux. Written in Rust, drawn on the GPU, with no browser engine inside. Free, open source, and without telemetry.</p>
+      <p class="lead">For Windows, macOS and Linux. Written in Rust, drawn on the GPU, with no browser engine inside. Free and open source.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#download" data-primary>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
@@ -203,9 +207,9 @@
 <div class="facts">
   <div class="wrap">
     <ul>
-      <li><b>50</b><span>languages with highlighting and folding</span></li>
+      <li><b>51</b><span>languages with highlighting and folding</span></li>
       <li><b>3</b><span>systems: Windows, macOS, Linux</span></li>
-      <li><b>0</b><span>telemetry, accounts or ads</span></li>
+      <li><b>5</b><span>interface languages</span></li>
       <li><b>$0</b><span>forever: MIT or Apache-2.0</span></li>
     </ul>
   </div>
@@ -225,7 +229,7 @@
       </article>
       <article class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div>
-        <h3>50 languages</h3>
+        <h3>51 languages</h3>
         <p>Highlighting and folding with tree-sitter, in the background and without stutter. It understands nesting: scripts in HTML, code in Markdown, regexes in JavaScript.</p>
       </article>
       <article class="card">
@@ -265,11 +269,26 @@ Sort Lines By Length Descending
         <h3>Syntax-aware selection</h3>
         <p><kbd>Ctrl+Alt+Up</kbd> grows the selection to the word, the string, the brackets, the statement, the function; <kbd>Ctrl+Alt+Down</kbd> shrinks it. Block headers stay at the top as you scroll; words and paths complete.</p>
       </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/></svg></div>
+        <h3>Language servers (LSP)</h3>
+        <p>Connect a language server for diagnostics, completion, go to definition, find references, symbol renaming and formatting.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6v12m12-12v3a3 3 0 0 1-3 3H6"/><circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="4" r="2"/></svg></div>
+        <h3>Git integration</h3>
+        <p>See changes since the last commit in the gutter, jump between changed blocks, check who last changed a line and compare the file with Git HEAD.</p>
+      </article>
+      <article class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3m6 0h4"/></svg></div>
+        <h3>Integrated terminal</h3>
+        <p>Open the terminal below the editor. Your system shell or a shell of your choice starts in the active file’s folder.</p>
+      </article>
       <article class="card wide">
         <div>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></div>
           <h3>Search the way you're used to</h3>
-          <p>Normal, Extended (<code>\n</code>, <code>\t</code>, <code>\x41</code>) and regular expressions with back-references. Find in Files with Notepad++'s filters, marks, bookmarks, incremental search and a results panel.</p>
+          <p>Normal, Extended (<code>\n</code>, <code>\t</code>, <code>\x41</code>) and regular expressions with back-references. Find in Files with Notepad++'s filters, marks, bookmarks, incremental search and a results panel. Move the Find window to another monitor or dock it below the editor.</p>
         </div>
 <pre class="snippet"><span class="p">Find what:  </span><span class="s">fn (\w+)\(</span>
 <span class="p">Replace:    </span><span class="s">pub fn $1(</span>
@@ -280,7 +299,7 @@ Sort Lines By Length Descending
       <article class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M5.5 8h1.5M5.5 11h1.5M5.5 14h1.5"/></svg></div>
         <h3>Panels</h3>
-        <p>Function List for 28 languages, Document Map, Folder as Workspace, projects, Clipboard History and the Character Panel.</p>
+        <p>Function List for 28 languages, Document Map, Folder as Workspace with file creation, renaming and moving, projects, Clipboard History and the Character Panel.</p>
       </article>
       <article class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18z" fill="currentColor"/></svg></div>
@@ -311,8 +330,8 @@ Sort Lines By Length Descending
       </article>
       <article class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
-        <h3>English, Russian, German</h3>
-        <p>Menus, dialogs, messages and the status bar in English, Russian or German, following the system's language or the one you choose. A Notepad++ translation file names the menus in any other language.</p>
+        <h3>Five interface languages</h3>
+        <p>Menus, dialogs, messages and the status bar in English, Russian, German, French or Spanish. Birchpad uses the system language by default. A Notepad++ translation file names the menus in any other language.</p>
       </article>
       <article class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6M8 15l2.5 2.5L16 12"/></svg></div>
@@ -370,7 +389,7 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
         <ul class="checks">
           <li><span><b>macOS and Linux.</b> One editor on all your machines, with the same settings.</span></li>
           <li><span><b>A native GPU-drawn UI.</b> No Electron, no Chromium inside.</span></li>
-          <li><span><b>Safe plugins.</b> Plugins and scripts run in a sandbox, without files or the network, with time and memory limits.</span></li>
+          <li><span><b>Safe plugins.</b> Plugins and scripts run in a sandbox with time and memory limits. Plugins can access files with your permission.</span></li>
           <li><span><b>Safe updates.</b> An ed25519-signed manifest, and an SBOM and GitHub build provenance with every release.</span></li>
           <li><span><b>Portable mode.</b> Unzip it to a USB stick and the settings stay next to the program.</span></li>
         </ul>
@@ -384,9 +403,8 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
 <div class="trust">
   <div class="wrap split">
     <div class="card">
-      <div class="big-zero">0 requests</div>
-      <h3>Sends nothing</h3>
-      <p>No telemetry, no crash reports, no accounts. Your files, sessions and backups stay on your computer. Birchpad goes online only to check for updates, once a day, and with <code>updates.mode = "off"</code> it makes no network requests at all. <a href="/en/privacy/">Privacy policy</a></p>
+      <h3>Your files stay on your computer</h3>
+      <p>Documents, sessions and backups stay on your computer. Update checks send install statistics by default: a random ID, version, channel, platform and PlantUML details. You can turn this off in the update settings. <a href="/en/privacy/">Privacy policy</a></p>
     </div>
     <div class="card">
       <div class="big-zero">MSI</div>
@@ -400,35 +418,36 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
   <div class="wrap">
     <p class="kicker">Download</p>
     <h2>Free on every system</h2>
-    <p class="sub">Pick an installer that updates itself, an MSI for administrators, or a portable ZIP. The <a href="/en/docs/install/">documentation</a> helps you choose.</p>
+    <p class="sub">Choose self-updating installers for Windows and macOS, an MSI for administrators, a macOS disk image or portable ZIPs for Windows and Linux. The <a href="/en/docs/install/">documentation</a> helps you choose.</p>
     <div class="dl-box">
       <div class="dl-head">
-        <p>Latest version: <span class="dl-ver">Birchpad <span data-version>0.7.7</span></span></p>
+        <p>Latest version: <span class="dl-ver">Birchpad <span data-version>0.8.3</span></span></p>
         <a href="https://github.com/SecurityTrip/Birchpad/releases">All releases and nightly builds →</a>
       </div>
       <div class="dl-list">
         <div class="os" data-os="windows">
           <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>Windows</h3>
           <ul>
-            <li><a data-asset="windows-x64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-windows-x64-setup.exe"><span>Installer x64</span><span data-size>36 MB</span></a></li>
-            <li><a data-asset="windows-arm64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-windows-arm64-setup.exe"><span>Installer ARM64</span><span data-size>32 MB</span></a></li>
-            <li><a data-asset="windows-x64.msi" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-windows-x64.msi"><span>MSI for administrators</span><span data-size>20 MB</span></a></li>
-            <li><a data-asset="windows-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-windows-x64.zip"><span>Portable ZIP x64</span><span data-size>24 MB</span></a></li>
-            <li><a data-asset="windows-arm64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-windows-arm64.zip"><span>Portable ZIP ARM64</span><span data-size>22 MB</span></a></li>
+            <li><a data-asset="windows-x64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-windows-x64-setup.exe"><span>Installer x64</span><span data-size>39 MB</span></a></li>
+            <li><a data-asset="windows-arm64-setup.exe" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-windows-arm64-setup.exe"><span>Installer ARM64</span><span data-size>35 MB</span></a></li>
+            <li><a data-asset="windows-x64.msi" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-windows-x64.msi"><span>MSI for administrators</span><span data-size>22 MB</span></a></li>
+            <li><a data-asset="windows-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-windows-x64.zip"><span>Portable ZIP x64</span><span data-size>27 MB</span></a></li>
+            <li><a data-asset="windows-arm64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-windows-arm64.zip"><span>Portable ZIP ARM64</span><span data-size>25 MB</span></a></li>
           </ul>
           <p class="note">The installer needs no administrator rights and updates itself. SmartScreen asks on the first start: “More info” → “Run anyway”.</p>
         </div>
         <div class="os" data-os="macos">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>macOS</h3>
           <ul>
-            <li><a data-asset="macos.dmg" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-macos.zip"><span>Birchpad.app</span><span data-size>47 MB</span></a></li>
+            <li><a data-asset="macos.dmg" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-macos.dmg"><span>Birchpad.app</span><span data-size>60 MB</span></a></li>
+            <li><a data-asset="macos.pkg" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-macos.pkg"><span>Self-updating PKG installer</span><span data-size>56 MB</span></a></li>
           </ul>
-          <p class="note">macOS 10.15.7 or later, Apple silicon and Intel. Open the disk image (or unzip older releases) and move Birchpad.app to Applications. If the first launch is blocked, use <a href="https://support.apple.com/en-us/102445">Open Anyway</a>.</p>
+          <p class="note">macOS 10.15.7 or later, Apple silicon and Intel. Open the DMG or unzip an older release and drag Birchpad to Applications. Install the PKG for automatic updates. If macOS blocks the first launch, use <a href="https://support.apple.com/en-us/102445">Open Anyway</a>.</p>
         </div>
         <div class="os" data-os="linux">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>Linux</h3>
           <ul>
-            <li><a data-asset="linux-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.7.7/birchpad-0.7.7-linux-x64.zip"><span>Portable ZIP x64</span><span data-size>32 MB</span></a></li>
+            <li><a data-asset="linux-x64.zip" href="https://github.com/SecurityTrip/Birchpad/releases/download/v0.8.3/birchpad-0.8.3-linux-x64.zip"><span>Portable ZIP x64</span><span data-size>34 MB</span></a></li>
           </ul>
           <p class="note">To see Birchpad in the applications menu, copy the <code>.desktop</code> and <code>.png</code> files from the archive — <a href="/en/docs/install/#linux">instructions</a>.</p>
         </div>
@@ -449,12 +468,12 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
     </div>
     <ol class="road">
       <li class="done"><span class="pin">✓</span><div><h3>Foundation and the first notepad</h3><p>Tabs, encodings, line endings, find and replace, installers and updates.</p></div></li>
-      <li class="done"><span class="pin">✓</span><div><h3>A Notepad++-level editor</h3><p>Highlighting for 50 languages, folding, multi-cursor, bookmarks, sessions.</p></div></li>
+      <li class="done"><span class="pin">✓</span><div><h3>A Notepad++-level editor</h3><p>Syntax highlighting, folding, multi-cursor, bookmarks, sessions.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Search and navigation <span class="tag">0.1.3</span></h3><p>Regular expressions, Find in Files, marks, side panels, navigation history.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Customization <span class="tag">0.1.4</span></h3><p>Themes and Notepad++ theme import, Preferences, Shortcut Mapper, macros, UDL, auto-completion, printing, the Russian interface.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Plugins <span class="tag">0.1.5</span></h3><p>WebAssembly plugins, Rhai scripts, Plugins Admin; JSON, XML, Hex, Compare, Spell Checker.</p></div></li>
       <li class="done"><span class="pin">✓</span><div><h3>Full parity with Notepad++ <span class="tag">0.2.0 → 0.6.0</span></h3><p>Tabs and the Window menu, the toolbar, Markdown and PlantUML preview, print preview, the UDL editor, a German interface, plugin API 0.2, ComparePlus-style Compare.</p></div></li>
-      <li class="now"><span class="pin">7</span><div><h3>Beyond Notepad++ <span class="tag next">0.7.0 → 1.0</span></h3><p>Done: a command palette, Go to File, syntax-aware selection, sticky scroll and a new PlantUML preview. Next: LSP, Git, an integrated terminal, multi-gigabyte files, remote editing over SSH, Vim mode.</p></div></li>
+      <li class="now"><span class="pin">7</span><div><h3>Beyond Notepad++ <span class="tag next">0.7.0 → 1.0</span></h3><p>Done: a command palette, Go to File, syntax-aware selection, sticky scroll and a new PlantUML preview. Version 0.8 added an LSP client, Git integration, an integrated terminal and file operations in the workspace tree. The roadmap includes multi-gigabyte files, CSV and JSON viewers, editing over SSH/SFTP and Vim mode.</p></div></li>
     </ol>
   </div>
 </section>
@@ -491,7 +510,7 @@ Server <span class="f">--&gt;</span> Browser: <span class="s">200 OK</span>
       </details>
       <details>
         <summary>How ready is it?</summary>
-        <p>It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Birchpad does what matters in Notepad++, and since 0.7.0 adds what Notepad++ does not have: a command palette, Go to File, syntax-aware selection. LSP, Git and an integrated terminal come next. Report bugs and ideas in <a href="https://github.com/SecurityTrip/Birchpad/issues">GitHub Issues</a>.</p>
+        <p>It is a beta: everything people usually open Notepad++ for is there, from Find in Files to themes, macros and plugins. Birchpad does what matters in Notepad++, and since 0.7.0 adds what Notepad++ does not have: a command palette, Go to File, syntax-aware selection. Version 0.8.0 added an LSP client, Git integration and an integrated terminal. Report bugs and ideas in <a href="https://github.com/SecurityTrip/Birchpad/issues">GitHub Issues</a>.</p>
       </details>
       <details>
         <summary>Do Notepad++ plugins work?</summary>

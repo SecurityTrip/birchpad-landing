@@ -3,26 +3,31 @@ title: Privacy
 description: Birchpad collects no personal data. Which network requests it makes and how to turn them off.
 ---
 
-Birchpad collects no personal data. It has no telemetry, no crash reporting and no accounts. Your documents, sessions and backups stay on your computer, in Birchpad's data folder (or, in portable mode, the `data` folder next to it).
+Documents, sessions and backups stay on your computer. Birchpad has no accounts or crash reporting. Update checks send install statistics by default. You can turn them off in Preferences.
 
 ## Network requests
 
-On its own, Birchpad connects to the network only for updates:
+- **Updates.** Birchpad requests the signed manifest from `https://api.birchpad.ru/v1/updates/check` and falls back to GitHub if that fails. Setting `updates.url` directs checks to that mirror without sending install statistics. With automatic updates enabled, copies installed through the Windows EXE or macOS PKG download the new version from the URL in the manifest.
+- **PlantUML, plugins and dictionaries.** Downloads start when you request them. Set `network.online-features = false` to disable them. See [Preview](/en/docs/preview/) and [Plugins and scripts](/en/docs/plugins/).
 
-- **Checking for updates**: once a day while Birchpad runs, and when you pick **Help → Check for Updates…**, it downloads the update manifest from `https://github.com/SecurityTrip/Birchpad/releases/download/updates/birchpad-updates.json`, or from the address in the `updates.url` setting. The request says which version of Birchpad asks and on which operating system (the `User-Agent` header, such as `Birchpad/0.1.4 (windows)`), and nothing about you or your files.
-- **Downloading updates**: with `updates.mode = "auto"` (the default), a copy installed with the per-user Windows installer downloads the package of a newer version from the address the manifest lists (GitHub's release downloads).
-- **PlantUML**: only when you click **Install PlantUML** in the [preview](/en/docs/preview/), PlantUML and its Java are downloaded from Birchpad\'s releases on GitHub. With `network.online-features = false` that button downloads nothing.
-- **Plugin catalog and dictionaries**: only when you click **Refresh List** in Plugins Admin or **Download Languages…** in the Spell Checker, the list is downloaded from Birchpad's repository on GitHub, and plugins and dictionaries from the addresses it gives, checked against their SHA-256. With `network.online-features = false` (the `OnlineFeatures` policy) this is off.
+Language servers are programs you configure. Birchpad starts them on your computer and sends them the text of documents in the corresponding language. Git integration uses your installed `git` to read the local repository.
 
-GitHub serves these files and, like any web server, sees the requests: the address of your computer or network and the time. Its [privacy statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement) covers them.
+GitHub receives the network address and time of requests for files it serves. These requests are covered by [GitHub's privacy statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
+
+## Install statistics
+
+The request includes a random install ID, Birchpad version, update channel, platform, how PlantUML was installed and the version of the Birchpad component if present. Birchpad creates the ID on the first check with statistics enabled and stores it in `state.toml`. The ID is independent of the computer and user.
+
+The service keeps one record per ID with the first and current versions, channel, platform, PlantUML details and the times of the first and most recent checks. It keeps no IP addresses, User-Agent headers or history of checks.
 
 ## Turning it off
 
-- `updates.mode = "off"` in Birchpad's settings stops all network requests.
-- `updates.mode = "notify"` checks and announces new versions, but downloads nothing.
-- Administrators can set the same with the `UpdateMode` policy, which users cannot override. See [For administrators](/en/docs/admin/).
+- `updates.statistics = false` turns off statistics and deletes the ID from `state.toml`. Update checks send an empty body, `{}`.
+- `updates.mode = "off"` turns off update checks and downloads. Set `network.online-features = false` as well to disable downloads of PlantUML, plugins and dictionaries from the catalog.
+- `updates.mode = "notify"` announces new versions and leaves downloads to you.
+- Administrators can set the `UpdateStatistics`, `UpdateMode` and `OnlineFeatures` policies. See [For administrators](/en/docs/admin/).
 
-A link you choose to open (Open Download Page in an update notice, for example) goes to your browser.
+Links you choose to open go to your browser.
 
 ## This website
 
